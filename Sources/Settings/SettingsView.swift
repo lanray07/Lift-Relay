@@ -22,8 +22,8 @@ struct SettingsView: View {
             }
             Section("settings.about") {
                 Text("settings.medicalDisclaimer").font(.footnote).foregroundStyle(.secondary)
-                Link("legal.privacy", destination: URL(string: "https://liftrelay.app/privacy")!)
-                Link("legal.terms", destination: URL(string: "https://liftrelay.app/terms")!)
+                Link("legal.privacy", destination: URL(string: "https://github.com/lanray07/Lift-Relay/blob/main/PRIVACY.md")!)
+                Link("legal.terms", destination: URL(string: "https://github.com/lanray07/Lift-Relay/blob/main/TERMS.md")!)
             }
             Section { Button("settings.replayOnboarding") { appState.resetOnboarding() } }
         }

@@ -9,6 +9,7 @@
   <key>CFBundleName</key><string>Lift Relay</string>
   <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
   <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+  <key>ITSAppUsesNonExemptEncryption</key><false/>
   <key>UILaunchScreen</key><dict/>
   <key>NSMicrophoneUsageDescription</key><string>Lift Relay uses the microphone only while you choose voice workout logging.</string>
   <key>NSSpeechRecognitionUsageDescription</key><string>Lift Relay transcribes workout commands such as logging a set or starting a timer.</string>

@@ -32,7 +32,7 @@ struct PaywallView: View {
                     }
                     Button("paywall.restore") { Task { await store.restore() } }.frame(maxWidth: .infinity)
                     Text("paywall.renewal").font(.caption).foregroundStyle(.secondary)
-                    HStack { Link("legal.terms", destination: URL(string: "https://liftrelay.app/terms")!); Spacer(); Link("legal.privacy", destination: URL(string: "https://liftrelay.app/privacy")!) }.font(.footnote)
+                    HStack { Link("legal.terms", destination: URL(string: "https://github.com/lanray07/Lift-Relay/blob/main/TERMS.md")!); Spacer(); Link("legal.privacy", destination: URL(string: "https://github.com/lanray07/Lift-Relay/blob/main/PRIVACY.md")!) }.font(.footnote)
                 }.padding()
             }
             .navigationTitle("paywall.pro")
