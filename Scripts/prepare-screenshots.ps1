@@ -27,7 +27,7 @@ for ($index = 0; $index -lt $sources.Count; $index++) {
     try {
         $number = ($index + 1).ToString('00')
 
-        $iphone = New-Object System.Drawing.Bitmap 1242, 2688
+        $iphone = New-Object System.Drawing.Bitmap 1242, 2688, ([System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
         try {
             $graphics = [System.Drawing.Graphics]::FromImage($iphone)
             try {
