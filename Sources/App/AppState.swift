@@ -21,8 +21,9 @@ final class AppState {
         self.defaults = defaults
         hasCompletedOnboarding = defaults.bool(forKey: "onboarding.complete")
         profile = Self.load(UserProfile.self, key: "profile", defaults: defaults) ?? .sample
-        gyms = Self.load([GymProfile].self, key: "gyms", defaults: defaults) ?? [.commercialGym]
-        selectedGymID = gyms.first?.id
+        let restoredGyms = Self.load([GymProfile].self, key: "gyms", defaults: defaults) ?? [.commercialGym]
+        gyms = restoredGyms
+        selectedGymID = restoredGyms.first?.id
         history = Self.load([WorkoutSession].self, key: "history", defaults: defaults) ?? []
     }
 
