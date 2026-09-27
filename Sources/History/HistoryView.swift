@@ -56,7 +56,7 @@ private struct WorkoutHistoryCard: View {
             VStack(alignment: .leading, spacing: 8) {
                 HStack { Text(workout.name).font(.title3.bold()); Spacer(); Text(workout.startedAt, style: .date).font(.caption).foregroundStyle(.secondary) }
                 Text("history.completedSets \(workout.exercises.flatMap(\.sets).count)").font(.subheadline)
-                ForEach(workout.exercises) { item in
+                ForEach(workout.exercises, id: \.id) { item in
                     VStack(alignment: .leading, spacing: 3) {
                         Text(item.performed.name).font(.subheadline.weight(.semibold))
                         if item.performed != item.planned.exercise {
@@ -65,12 +65,20 @@ private struct WorkoutHistoryCard: View {
                         if item.isSkipped {
                             Text("history.skipped").font(.caption).foregroundStyle(.secondary)
                         } else if !item.sets.isEmpty {
-                            Text(item.sets.map { "\($0.reps) × \(WeightConverter.display(kilograms: $0.kilograms, unit: unit), format: .number.precision(.fractionLength(0...1))) \(unit == .kilograms ? "kg" : "lb")" }.joined(separator: " • "))
+                            Text(setSummary(item))
                                 .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                         }
                     }
                 }
             }
         }
+    }
+
+    private func setSummary(_ exercise: PerformedExercise) -> String {
+        let suffix = unit == .kilograms ? "kg" : "lb"
+        return exercise.sets.map { set in
+            let displayed = WeightConverter.display(kilograms: set.kilograms, unit: unit)
+            return "\(set.reps) × \(displayed.formatted(.number.precision(.fractionLength(0...1)))) \(suffix)"
+        }.joined(separator: " • ")
     }
 }
