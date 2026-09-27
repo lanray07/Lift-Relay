@@ -217,6 +217,8 @@ jobs:
           name: lift-relay-export-logs-${{ github.run_number }}
           path: |
             ${{ runner.temp }}/LiftRelay.xcarchive/Info.plist
+            ${{ runner.temp }}/LiftRelay.xcarchive/Products/Applications/LiftRelay.app/Info.plist
+            ${{ runner.temp }}/LiftRelay.xcarchive/Products/Applications/LiftRelay.app/Assets.car
             ${{ runner.temp }}/export/DistributionSummary.plist
             ${{ runner.temp }}/export/ExportOptions.plist
           if-no-files-found: ignore
