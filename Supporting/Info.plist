@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleLocalizations</key>
+  <array><string>en</string><string>es</string><string>fr</string><string>de</string><string>it</string><string>pt</string><string>ja</string><string>ko</string><string>zh-Hans</string><string>zh-Hant</string><string>ar</string><string>hi</string><string>nl</string><string>pl</string><string>tr</string></array>
+  <key>CFBundleDisplayName</key><string>Lift Relay</string>
+  <key>CFBundleName</key><string>Lift Relay</string>
+  <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+  <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+  <key>UILaunchScreen</key><dict/>
+  <key>NSMicrophoneUsageDescription</key><string>Lift Relay uses the microphone only while you choose voice workout logging.</string>
+  <key>NSSpeechRecognitionUsageDescription</key><string>Lift Relay transcribes workout commands such as logging a set or starting a timer.</string>
+  <key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string></array>
+</dict>
+</plist>
