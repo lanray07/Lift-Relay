@@ -6,15 +6,21 @@ struct WorkoutBuilderView: View {
     let isQuick: Bool
     @State private var name = "MY WORKOUT"
     @State private var selected: Set<UUID> = []
+    @State private var savesTemplate = true
 
     private var availableExercises: [Exercise] {
-        ExerciseLibrary.all.filter { $0.equipment.isSubset(of: appState.selectedGym.equipment) }
+        ExerciseLibrary.all.filter { $0.equipment.isSubset(of: appState.selectedGym.equipment) && !appState.profile.restrictions.contains($0.id) }
     }
 
     var body: some View {
         NavigationStack {
             List {
-                if !isQuick { Section("builder.details") { TextField("builder.name", text: $name) } }
+                if !isQuick {
+                    Section("builder.details") {
+                        TextField("builder.name", text: $name)
+                        Toggle("builder.saveTemplate", isOn: $savesTemplate)
+                    }
+                }
                 Section("builder.exercises") {
                     ForEach(availableExercises) { exercise in
                         Button { toggle(exercise.id) } label: {
@@ -35,6 +41,7 @@ struct WorkoutBuilderView: View {
     private func toggle(_ id: UUID) { if selected.contains(id) { selected.remove(id) } else { selected.insert(id) } }
     private func start() {
         let exercises = availableExercises.filter { selected.contains($0.id) }.map { PlannedExercise(exercise: $0, sets: 3, repRange: 8...12, restSeconds: 90) }
+        if !isQuick && savesTemplate { appState.saveTemplate(name: name, exercises: exercises) }
         dismiss()
         appState.startWorkout(name: name.isEmpty ? "MY WORKOUT" : name, exercises: exercises)
     }

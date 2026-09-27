@@ -120,9 +120,38 @@ def main() -> None:
             },
         )["data"]
 
+    existing = api.request(
+        "GET",
+        f"/appScreenshotSets/{screenshot_set['id']}/appScreenshots",
+        params={
+            "fields[appScreenshots]": "fileName,sourceFileChecksum,assetDeliveryState",
+            "limit": 200,
+        },
+    )["data"]
+    reusable_by_name: dict[str, list[dict]] = {}
+    for item in existing:
+        reusable_by_name.setdefault(item["attributes"]["fileName"], []).append(item)
+
     screenshot_ids: list[str] = []
+    reused_ids: set[str] = set()
     for path in files:
         contents = path.read_bytes()
+        checksum = hashlib.md5(contents, usedforsecurity=False).hexdigest()
+        reusable = next(
+            (
+                item
+                for item in reusable_by_name.get(path.name, [])
+                if item["attributes"].get("sourceFileChecksum") == checksum
+                and item["attributes"].get("assetDeliveryState", {}).get("state") == "COMPLETE"
+            ),
+            None,
+        )
+        if reusable is not None:
+            screenshot_ids.append(reusable["id"])
+            reused_ids.add(reusable["id"])
+            print(f"Reused unchanged {path.name} ({reusable['id']})", flush=True)
+            continue
+
         reservation = api.request(
             "POST",
             "/appScreenshots",
@@ -161,7 +190,6 @@ def main() -> None:
                     f"Asset upload for {path.name} failed ({response.status_code}): {response.text}"
                 )
 
-        checksum = hashlib.md5(contents, usedforsecurity=False).hexdigest()
         screenshot_id = reservation["id"]
         api.request(
             "PATCH",
@@ -214,7 +242,12 @@ def main() -> None:
             ]
         },
     )
-    print("Uploaded, processed, and ordered all 10 iPhone screenshots.")
+    obsolete_ids = [item["id"] for item in existing if item["id"] not in reused_ids]
+    for screenshot_id in obsolete_ids:
+        api.request("DELETE", f"/appScreenshots/{screenshot_id}")
+        print(f"Removed superseded screenshot {screenshot_id}", flush=True)
+
+    print("Reconciled, processed, and ordered all 10 iPhone screenshots.")
 
 
 if __name__ == "__main__":

@@ -10,19 +10,13 @@ struct HomeView: View {
                 header
                 todayCard
                 quickActions
+                savedTemplates
                 insight
             }.padding()
         }
         .relayBackground()
         .navigationTitle("home.title")
-        .sheet(item: $appState.activeSheet) { sheet in
-            switch sheet {
-            case .createWorkout: WorkoutBuilderView(isQuick: false)
-            case .quickWorkout: WorkoutBuilderView(isQuick: true)
-            case .gymProfiles: GymProfilesView()
-            case .paywall: PaywallView()
-            }
-        }
+        .appSheets($appState.activeSheet)
     }
 
     private var header: some View {
@@ -71,6 +65,28 @@ struct HomeView: View {
             }
         }
     }
+
+    @ViewBuilder private var savedTemplates: some View {
+        if !appState.workoutTemplates.isEmpty {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("home.savedWorkouts").font(.headline)
+                ForEach(appState.workoutTemplates) { template in
+                    Button { appState.startWorkout(from: template) } label: {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(template.name).font(.headline)
+                                Text("home.templateExercises \(template.exercises.count)").font(.caption).foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "play.circle.fill").font(.title2).foregroundStyle(Theme.accent)
+                        }
+                        .padding().background(Theme.card, in: RoundedRectangle(cornerRadius: 16))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
 }
 
 private struct Stat: View {
@@ -83,10 +99,4 @@ private struct QuickAction: View {
     var body: some View {
         Button(action: action) { VStack(spacing: 8) { Image(systemName: icon).font(.title3); Text(title).font(.caption.weight(.semibold)).multilineTextAlignment(.center) }.frame(maxWidth: .infinity).padding(.vertical, 14).background(Theme.card, in: RoundedRectangle(cornerRadius: 16)) }.buttonStyle(.plain)
     }
-}
-
-struct PlaceholderSheet: View {
-    @Environment(\.dismiss) private var dismiss
-    let title: LocalizedStringKey
-    var body: some View { NavigationStack { ContentUnavailableView(title, systemImage: "hammer", description: Text("common.comingSoon")).toolbar { ToolbarItem(placement: .confirmationAction) { Button("action.done") { dismiss() } } } } }
 }

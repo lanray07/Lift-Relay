@@ -25,7 +25,7 @@ Lift Relay provides general fitness-planning tools and is not medical advice. Co
 
 ## Your choices
 
-You can deny or revoke microphone and speech-recognition access in iOS Settings. You can manage or cancel subscriptions in your Apple Account subscription settings. Removing the app deletes its locally stored data, subject to device backups managed by you or Apple.
+You can export your workout data or delete workout history from Lift Relay Settings. You can deny or revoke microphone and speech-recognition access in iOS Settings. You can manage or cancel subscriptions in your Apple Account subscription settings. Removing the app deletes its locally stored data, subject to device backups managed by you or Apple.
 
 ## Contact
 

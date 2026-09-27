@@ -8,7 +8,7 @@
   <key>CFBundleIconName</key><string>AppIcon</string>
   <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
   <key>CFBundleLocalizations</key>
-  <array><string>en</string><string>es</string><string>fr</string><string>de</string><string>it</string><string>pt</string><string>ja</string><string>ko</string><string>zh-Hans</string><string>zh-Hant</string><string>ar</string><string>hi</string><string>nl</string><string>pl</string><string>tr</string></array>
+  <array><string>en</string></array>
   <key>CFBundleDisplayName</key><string>Lift Relay</string>
   <key>CFBundleName</key><string>Lift Relay</string>
   <key>CFBundlePackageType</key><string>APPL</string>

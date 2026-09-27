@@ -1,28 +1,26 @@
+param(
+    [Parameter(Mandatory = $true)]
+    [ValidateScript({ Test-Path -LiteralPath $_ -PathType Container })]
+    [string]$SourceRoot
+)
+
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 
-$sourceRoot = 'C:\Users\User\.codex\generated_images\01a0e345-6e80-7631-ac41-9267365270a6'
+$sourceRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
 $outputRoot = Join-Path $PSScriptRoot '..\AppStore\Screenshots\EnglishUK'
 $iphoneRoot = Join-Path $outputRoot 'iPhone65'
 $ipadRoot = Join-Path $outputRoot 'iPad129'
 $subscriptionRoot = Join-Path $outputRoot 'Subscriptions'
 New-Item -ItemType Directory -Force -Path $iphoneRoot, $ipadRoot, $subscriptionRoot | Out-Null
 
-$sources = @(
-    'exec-90324ea8-dcda-4f5b-941e-2ef794db6ac9.png',
-    'exec-5e1b2a1b-ce3b-4a14-8e80-677fe5d64058.png',
-    'exec-f14657c1-7569-4220-9e68-421034407d67.png',
-    'exec-3983d921-ffa2-4088-aba1-b3a40febb9d5.png',
-    'exec-16270b47-a127-4de1-b58e-5e5296409019.png',
-    'exec-cc7569b3-8305-47d5-a42f-6db4f58271d8.png',
-    'exec-684f48b9-a9b5-4043-9cb0-d7f845685028.png',
-    'exec-2ebe3aca-5108-4fd3-aae7-1124a0c86224.png',
-    'exec-c8b82c0b-d229-485a-8a79-6398acdcf6ea.png',
-    'exec-3ae6d40e-5cf1-4d2e-a0c1-1153669c9a1b.png'
-)
+$sources = @(Get-ChildItem -LiteralPath $sourceRoot -File -Filter '*.png' | Sort-Object Name)
+if ($sources.Count -ne 10) {
+    throw "Expected exactly 10 source PNG files in '$sourceRoot', found $($sources.Count). Name them 01.png through 10.png to control their order."
+}
 
 for ($index = 0; $index -lt $sources.Count; $index++) {
-    $sourcePath = Join-Path $sourceRoot $sources[$index]
+    $sourcePath = $sources[$index].FullName
     $source = [System.Drawing.Image]::FromFile($sourcePath)
     try {
         $number = ($index + 1).ToString('00')

@@ -7,7 +7,7 @@ struct OnboardingView: View {
     @State private var experience: ExperienceLevel = .intermediate
     @State private var days = 4
     @State private var equipment: Set<Equipment> = [.barbell, .dumbbells, .squatRack, .bench, .cableStation]
-    @State private var restrictions = ""
+    @State private var restrictedExerciseIDs: Set<UUID> = []
 
     var body: some View {
         VStack(spacing: 0) {
@@ -73,16 +73,33 @@ struct OnboardingView: View {
 
     private var restrictionStep: some View {
         OnboardingPage(title: "onboarding.restrictions.title", subtitle: "onboarding.restrictions.subtitle") {
-            TextField("onboarding.restrictions.placeholder", text: $restrictions, axis: .vertical)
-                .lineLimit(4...7).textFieldStyle(.roundedBorder)
+            VStack(spacing: 10) {
+                ForEach(ExerciseLibrary.all) { exercise in
+                    Button { toggleRestriction(exercise.id) } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(exercise.name).font(.subheadline.weight(.semibold))
+                                Text(exercise.movement.rawValue).font(.caption).foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: restrictedExerciseIDs.contains(exercise.id) ? "xmark.circle.fill" : "circle")
+                        }
+                        .padding(12)
+                        .background(restrictedExerciseIDs.contains(exercise.id) ? Color.red.opacity(0.12) : Theme.card, in: RoundedRectangle(cornerRadius: 14))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint(restrictedExerciseIDs.contains(exercise.id) ? "onboarding.restrictions.remove" : "onboarding.restrictions.add")
+                }
+            }
             Label("onboarding.safety", systemImage: "cross.case")
                 .font(.footnote).foregroundStyle(.secondary).padding(.top, 16)
         }
     }
 
     private func toggle(_ item: Equipment) { if equipment.contains(item) { equipment.remove(item) } else { equipment.insert(item) } }
+    private func toggleRestriction(_ id: UUID) { if restrictedExerciseIDs.contains(id) { restrictedExerciseIDs.remove(id) } else { restrictedExerciseIDs.insert(id) } }
     private func complete() {
-        appState.finishOnboarding(profile: UserProfile(goal: goal, experience: experience, trainingDaysPerWeek: days, typicalEquipment: equipment, restrictions: [], preferredUnit: .kilograms))
+        appState.finishOnboarding(profile: UserProfile(goal: goal, experience: experience, trainingDaysPerWeek: days, typicalEquipment: equipment, restrictions: restrictedExerciseIDs, preferredUnit: .kilograms))
         AnalyticsClient.shared.track(.onboardingCompleted)
     }
     private func goalTitle(_ value: TrainingGoal) -> LocalizedStringKey { LocalizedStringKey("goal.\(value.rawValue)") }

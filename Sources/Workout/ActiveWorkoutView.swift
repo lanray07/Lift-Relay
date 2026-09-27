@@ -2,14 +2,19 @@ import SwiftUI
 
 struct ActiveWorkoutView: View {
     @Environment(AppState.self) private var appState
+    @Environment(SubscriptionStore.self) private var subscriptionStore
     @State private var selectedRescue: RescueTarget?
     @State private var showsRelay = false
     @State private var showsTimeRescue = false
     @State private var showsFinishConfirmation = false
     @State private var showsVoice = false
     @State private var restDeadline: Date?
+    @State private var pendingTimeRescueMinutes: Int?
+    @State private var voiceFeedback: VoiceFeedback?
+    @State private var lastVoiceFeedback: String?
 
     var body: some View {
+        @Bindable var appState = appState
         NavigationStack {
             ScrollView {
                 VStack(spacing: 14) {
@@ -21,7 +26,7 @@ struct ActiveWorkoutView: View {
                                 restDeadline = .now.addingTimeInterval(TimeInterval(exercise.planned.restSeconds))
                             }, onUnavailable: {
                                 AnalyticsClient.shared.track(.equipmentUnavailable)
-                                selectedRescue = RescueTarget(id: exercise.id, planned: exercise.planned)
+                                requirePro { selectedRescue = RescueTarget(id: exercise.id, planned: exercise.planned) }
                             })
                         }
                     }
@@ -33,8 +38,8 @@ struct ActiveWorkoutView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) { Button("workout.end") { showsFinishConfirmation = true } }
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button { showsTimeRescue = true } label: { Image(systemName: "timer") }.accessibilityLabel("timeRescue.title")
-                    Button { showsRelay = true; AnalyticsClient.shared.track(.relayStarted) } label: { Label("relay.title", systemImage: "arrow.triangle.2.circlepath") }.labelStyle(.iconOnly)
+                    Button { requirePro { pendingTimeRescueMinutes = nil; showsTimeRescue = true } } label: { Image(systemName: "timer") }.accessibilityLabel("timeRescue.title")
+                    Button { requirePro { showsRelay = true; AnalyticsClient.shared.track(.relayStarted) } } label: { Label("relay.title", systemImage: "arrow.triangle.2.circlepath") }.labelStyle(.iconOnly)
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -42,8 +47,12 @@ struct ActiveWorkoutView: View {
             }
             .sheet(item: $selectedRescue) { target in RescueSheet(target: target) }
             .sheet(isPresented: $showsRelay) { RelayModeView() }
-            .sheet(isPresented: $showsTimeRescue) { TimeRescueView() }
+            .sheet(isPresented: $showsTimeRescue) { TimeRescueView(initialMinutes: pendingTimeRescueMinutes) }
             .sheet(isPresented: $showsVoice) { VoiceCommandSheet(onConfirm: handleVoice) }
+            .appSheets($appState.activeSheet)
+            .alert(item: $voiceFeedback) { feedback in
+                Alert(title: Text("voice.result"), message: Text(feedback.message), dismissButton: .default(Text("action.done")))
+            }
             .confirmationDialog("workout.finish.title", isPresented: $showsFinishConfirmation) {
                 Button("workout.finish", role: .destructive) { appState.finishWorkout() }
                 Button("action.cancel", role: .cancel) {}
@@ -58,7 +67,7 @@ struct ActiveWorkoutView: View {
                 Text("workout.keepIntent").font(.title3.bold())
             }
             Spacer()
-            Button { showsVoice = true } label: { Image(systemName: "waveform.circle.fill").font(.title2) }.accessibilityLabel("voice.title")
+            Button { requirePro { showsVoice = true } } label: { Image(systemName: "waveform.circle.fill").font(.title2) }.accessibilityLabel("voice.title")
         }.padding(.bottom, 4)
     }
 
@@ -68,10 +77,28 @@ struct ActiveWorkoutView: View {
         case .logSet(let reps, let weight): appState.logSet(exerciseID: current.id, reps: reps, displayedWeight: weight)
         case .startRestTimer: restDeadline = .now.addingTimeInterval(TimeInterval(current.planned.restSeconds))
         case .equipmentUnavailable: selectedRescue = RescueTarget(id: current.id, planned: current.planned)
-        case .timeRescue: showsTimeRescue = true
-        case .whatsNext, .repeatLast, .unknown: break
+        case .timeRescue(let minutes): pendingTimeRescueMinutes = max(5, min(minutes, 180)); showsTimeRescue = true
+        case .whatsNext:
+            presentVoiceFeedback("\(current.performed.name): \(max(0, current.planned.sets - current.sets.count)) sets remaining.")
+        case .repeatLast:
+            presentVoiceFeedback(lastVoiceFeedback ?? "\(current.performed.name): \(max(0, current.planned.sets - current.sets.count)) sets remaining.")
+        case .unknown: break
         }
     }
+
+    private func requirePro(_ action: () -> Void) {
+        if subscriptionStore.isPro { action() } else { appState.activeSheet = .paywall }
+    }
+
+    private func presentVoiceFeedback(_ message: String) {
+        lastVoiceFeedback = message
+        voiceFeedback = VoiceFeedback(message: message)
+    }
+}
+
+private struct VoiceFeedback: Identifiable {
+    let id = UUID()
+    let message: String
 }
 
 struct RescueTarget: Identifiable {

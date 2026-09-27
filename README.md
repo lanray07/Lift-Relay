@@ -14,8 +14,8 @@ Lift Relay is an offline-first SwiftUI workout companion that adapts structured 
 - Speech-framework capture with visible confirmation before state changes
 - StoreKit 2 product loading, purchase verification, restore, and dynamic prices
 - Privacy-conscious local analytics buffer and privacy manifest
-- Validated backend AI boundary with no client secret
-- English UI catalogue with language/RTL-ready fallback configuration
+- Fully local recommendation engine with no account or remote processing
+- English user interface with localized App Store product pages
 
 ## Open on macOS
 
@@ -27,7 +27,7 @@ xcodegen generate
 open LiftRelay.xcodeproj
 ```
 
-Select a development team, create the two subscription products listed in `SubscriptionStore.productIDs`, then build with Xcode 16 or later for iOS 17+. No AI endpoint is invoked by the current local-first UI.
+Select a development team, create the two subscription products listed in `SubscriptionStore.productIDs`, then build with Xcode 16 or later for iOS 17+. Recommendations run locally using deterministic safety constraints.
 
 ## Tests
 

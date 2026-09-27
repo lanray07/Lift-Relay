@@ -4,7 +4,7 @@ For help with Lift Relay, check the steps below or [open a support issue](https:
 
 ## Purchases and subscriptions
 
-- In Lift Relay, open Settings and choose **Restore Purchases** if a Pro entitlement is missing.
+- In Lift Relay, open **Settings → Subscription → Restore Purchases** if a Pro entitlement is missing.
 - Manage or cancel a subscription in iOS under **Settings → Apple Account → Subscriptions**.
 - Apple handles billing and refunds. Use [reportaproblem.apple.com](https://reportaproblem.apple.com/) for purchase support.
 

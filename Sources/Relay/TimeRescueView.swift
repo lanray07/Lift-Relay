@@ -3,8 +3,12 @@ import SwiftUI
 struct TimeRescueView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(AppState.self) private var appState
-    @State private var minutes = 20
-    private let choices = [15, 20, 30, 45]
+    @State private var minutes: Int
+    private var choices: [Int] { Array(Set([15, 20, 30, 45, minutes])).sorted() }
+
+    init(initialMinutes: Int? = nil) {
+        _minutes = State(initialValue: max(5, min(initialMinutes ?? 20, 180)))
+    }
 
     var body: some View {
         NavigationStack {
