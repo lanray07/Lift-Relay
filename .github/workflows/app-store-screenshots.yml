@@ -1,0 +1,27 @@
+name: App Store Screenshots
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: app-store-screenshots
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    name: Upload iPhone screenshots
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install API dependencies
+        run: python -m pip install --disable-pip-version-check PyJWT cryptography requests
+
+      - name: Upload screenshots to App Store Connect
+        env:
+          API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          API_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_API_PRIVATE_KEY }}
+        run: python Scripts/upload-app-store-screenshots.py
