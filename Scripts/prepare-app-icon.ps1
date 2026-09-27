@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 
-$sourcePath = 'C:\Users\User\.codex\generated_images\01a0e345-6e80-7631-ac41-9267365270a6\exec-7abc2cf1-d5ef-48c6-9093-abe44df359b5.png'
+$sourcePath = Join-Path $PSScriptRoot '..\AppStore\Brand\LiftRelay-AppIcon-Premium.png'
 $outputDirectory = Join-Path $PSScriptRoot '..\Resources\Assets.xcassets\AppIcon.appiconset'
 $icons = @(
     @{ File = 'AppIcon-20.png'; Pixels = 20 },
