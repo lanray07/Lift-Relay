@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import tempfile
 import time
@@ -84,6 +85,15 @@ def fit_keywords(value: str) -> str:
     return ",".join(selected)
 
 
+def clean_text(value: str, *, multiline: bool = False) -> str:
+    """Remove invisible separators rejected by App Store metadata fields."""
+    value = value.replace("\u200b", " ").replace("\ufeff", " ").replace("\u2060", " ")
+    if multiline:
+        return "\n".join(re.sub(r"[\t\v\f\r ]+", " ", line).strip()
+                         for line in value.split("\n")).strip()
+    return re.sub(r"\s+", " ", value).strip()
+
+
 def version_resource(api: ASC) -> dict:
     data = api.request(
         "GET", f"/apps/{APP_ID}/appStoreVersions",
@@ -106,10 +116,10 @@ def ensure_version_localization(api: ASC, version_id: str, locale: str, copy: di
                                 existing: dict[str, dict]) -> str | None:
     attributes = {
         "locale": locale,
-        "description": copy["description"],
-        "keywords": fit_keywords(copy["keywords"]),
+        "description": clean_text(copy["description"], multiline=True),
+        "keywords": fit_keywords(clean_text(copy["keywords"])),
         "marketingUrl": MARKETING_URL,
-        "promotionalText": copy["promotionalText"],
+        "promotionalText": clean_text(copy["promotionalText"]),
         "supportUrl": SUPPORT_URL,
     }
     if locale in existing:
@@ -157,7 +167,10 @@ def app_info_localizations(api: ASC, app_info_id: str) -> dict[str, dict]:
 
 def ensure_app_info_localization(api: ASC, app_info_id: str, locale: str, copy: dict,
                                  existing: dict[str, dict]) -> None:
-    attributes = {"name": copy["name"], "subtitle": copy["subtitle"]}
+    attributes = {
+        "name": clean_text(copy["name"]),
+        "subtitle": clean_text(copy["subtitle"]),
+    }
     if locale in existing:
         localization_id = existing[locale]["id"]
         api.request("PATCH", f"/appInfoLocalizations/{localization_id}", json={

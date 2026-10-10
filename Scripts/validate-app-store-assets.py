@@ -34,6 +34,8 @@ def check_metadata() -> list[str]:
                 errors.append(f"{locale}: missing {key}")
             elif len(value) > limit:
                 errors.append(f"{locale}: {key} has {len(value)} characters (limit {limit})")
+            if any(character in value for character in ("\u200b", "\ufeff", "\u2060")):
+                errors.append(f"{locale}: {key} contains an unsupported invisible separator")
         keywords = item.get("keywords", "")
         if not keywords:
             errors.append(f"{locale}: missing keywords")
