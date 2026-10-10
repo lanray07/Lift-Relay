@@ -16,8 +16,8 @@ ASSETS = ROOT / "AppStore" / "GeneratedAssets"
 EXPECTED_SIZES = {
     "iPhoneDuoOuter": (1398, 2034),
     "iPhoneDuoInner": (2007, 2853),
-    "header-3840x1646.jpg": (3840, 1646),
-    "search-1920x1280.jpg": (1920, 1280),
+    "header-3840x1646.png": (3840, 1646),
+    "search-1920x1280.png": (1920, 1280),
 }
 
 

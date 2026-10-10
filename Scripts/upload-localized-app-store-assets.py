@@ -279,9 +279,9 @@ def locale_asset_files(locale_dir: Path) -> list[tuple[Path, str, str, str]]:
     items = [(path, "APP_SCREENSHOTS_AND_PREVIEWS", "APP_SCREENSHOT", SCREENSHOT_GROUP)
              for path in screenshots]
     items.extend([
-        (locale_dir / "ProductPage" / "header-3840x1646.jpg",
+        (locale_dir / "ProductPage" / "header-3840x1646.png",
          "CREATIVE_ASSETS", "PRODUCT_PAGE_HEADER_ASSET", DEFAULT_GROUP),
-        (locale_dir / "ProductPage" / "search-1920x1280.jpg",
+        (locale_dir / "ProductPage" / "search-1920x1280.png",
          "CREATIVE_ASSETS", "APP_STORE_SEARCH_RESULTS_ASSET", DEFAULT_GROUP),
     ])
     return items

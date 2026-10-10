@@ -217,12 +217,12 @@ def render_locale(locale: str, copy: dict, output_root: Path) -> None:
     product_dir = locale_dir / "ProductPage"
     product_dir.mkdir(parents=True, exist_ok=True)
     header = product_asset(sources[9], locale, headlines[9], copy["subtitle"], (3840, 1646), "header")
-    # Asset Library's creative-asset processor rejects progressive JPEGs even
-    # though the same encoding is accepted for screenshot assets. Emit a
-    # baseline RGB JPEG for header/search placements.
-    header.save(product_dir / "header-3840x1646.jpg", quality=92, optimize=True, progressive=False)
+    # Use RGB PNG for creative placements. Apple's asset-library processor can
+    # reject otherwise valid JPEG encodings for these placements; RGB PNG is a
+    # documented format and carries no alpha/transparency channel.
+    header.save(product_dir / "header-3840x1646.png", optimize=True, compress_level=7)
     search = product_asset(sources[0], locale, headlines[4], copy["subtitle"], (1920, 1280), "search")
-    search.save(product_dir / "search-1920x1280.jpg", quality=92, optimize=True, progressive=False)
+    search.save(product_dir / "search-1920x1280.png", optimize=True, compress_level=7)
 
 
 def main() -> None:
