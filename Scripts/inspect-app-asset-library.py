@@ -26,8 +26,9 @@ def token() -> str:
 
 
 def get(path: str, params: dict | None = None) -> dict:
+    url = path if path.startswith("https://") else f"{API_ROOT}{path}"
     response = requests.get(
-        f"{API_ROOT}{path}", params=params,
+        url, params=params,
         headers={"Authorization": f"Bearer {token()}"}, timeout=90,
     )
     if not response.ok:
@@ -35,8 +36,42 @@ def get(path: str, params: dict | None = None) -> dict:
     return response.json()
 
 
+def get_all(path: str, params: dict | None = None) -> list[dict]:
+    items: list[dict] = []
+    page = get(path, params)
+    while True:
+        items.extend(page["data"])
+        next_url = page.get("links", {}).get("next")
+        if not next_url:
+            return items
+        page = get(next_url)
+
+
 def main() -> None:
     library = get(f"/apps/{APP_ID}/assetLibrary")["data"]
+    versions = get(
+        f"/apps/{APP_ID}/appStoreVersions",
+        {"filter[platform]": "IOS", "filter[versionString]": "1.0", "limit": 10},
+    )["data"]
+    if len(versions) != 1:
+        raise RuntimeError(f"Expected one iOS 1.0 version; found {len(versions)}")
+    localizations = get_all(
+        f"/appStoreVersions/{versions[0]['id']}/appStoreVersionLocalizations",
+        {"fields[appStoreVersionLocalizations]": "locale", "limit": 200},
+    )
+    images = get_all(
+        f"/appAssetLibraries/{library['id']}/images",
+        {"fields[appAssetLibraryImages]": "referenceName,state,placements", "limit": 200},
+    )
+    lift_relay_images = [
+        item for item in images
+        if item.get("attributes", {}).get("referenceName", "").startswith("lift-relay/")
+        and item.get("attributes", {}).get("state") != "FAILED"
+    ]
+    placement_count = sum(
+        len(item.get("relationships", {}).get("placements", {}).get("data", []))
+        for item in lift_relay_images
+    )
     ref_data = get("/appAssetLibraryRefData")["data"]
     relevant = []
     for item in ref_data:
@@ -61,7 +96,14 @@ def main() -> None:
                     }
                 ],
             })
-    print(json.dumps({"assetLibraryId": library["id"], "referenceData": relevant}, indent=2))
+    print(json.dumps({
+        "assetLibraryId": library["id"],
+        "versionLocalizationCount": len(localizations),
+        "versionLocales": sorted(item["attributes"]["locale"] for item in localizations),
+        "liftRelayReadyImageCount": len(lift_relay_images),
+        "liftRelayPlacementCount": placement_count,
+        "referenceData": relevant,
+    }, indent=2))
 
 
 if __name__ == "__main__":
