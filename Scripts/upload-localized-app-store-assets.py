@@ -314,6 +314,11 @@ def main() -> None:
             localization_id = ensure_version_localization(
                 api, version["id"], locale, copy, version_existing
             )
+            # Creating a version localization can automatically create the
+            # corresponding shared app-info localization. Refresh here so the
+            # following write patches that record instead of trying to create
+            # a duplicate from the pre-loop snapshot.
+            info_existing = app_info_localizations(api, app_info["id"])
             ensure_app_info_localization(api, app_info["id"], locale, copy, info_existing)
             subprocess.run(
                 ["python", str(ROOT / "Scripts" / "generate-app-store-assets.py"),
