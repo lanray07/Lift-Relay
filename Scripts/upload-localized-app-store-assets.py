@@ -47,13 +47,19 @@ class ASC:
     def __init__(self, apply: bool) -> None:
         self.apply = apply
         self.session = requests.Session()
-        self.session.headers.update({"Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+        self.session.headers.update({"Content-Type": "application/json"})
 
     def request(self, method: str, path: str, **kwargs) -> dict | None:
         if method != "GET" and not self.apply:
             print(f"PLAN {method} {path}")
             return None
-        response = self.session.request(method, f"{API_ROOT}{path}", timeout=120, **kwargs)
+        # Apple caps App Store Connect JWTs at 20 minutes. A complete
+        # multi-locale asset upload can take much longer, so sign a fresh token
+        # for every API request instead of pinning one to the session.
+        headers = {**kwargs.pop("headers", {}), "Authorization": f"Bearer {token()}"}
+        response = self.session.request(
+            method, f"{API_ROOT}{path}", timeout=120, headers=headers, **kwargs
+        )
         if not response.ok:
             raise RuntimeError(f"ASC {method} {path} failed ({response.status_code}): {response.text}")
         if response.status_code == 204 or not response.content:
