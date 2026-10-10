@@ -143,7 +143,13 @@ Source JSON:
 {json.dumps({key: SOURCE[key] for key in ('subtitle', 'promotionalText', 'description', 'keywords', 'screenshotHeadlines')}, ensure_ascii=False)}"""
     response = requests.post(
         GITHUB_MODELS_URL,
-        headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Content-Type": "application/json"},
+        headers={
+            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Accept": "application/vnd.github+json",
+            "Content-Type": "application/json",
+            "X-GitHub-Api-Version": "2026-03-10",
+            "User-Agent": "Lift-Relay-App-Store-Localization",
+        },
         json={
             "model": os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4o-mini"),
             "messages": [{"role": "user", "content": prompt}],
@@ -153,6 +159,10 @@ Source JSON:
         timeout=120,
     )
     response.raise_for_status()
+    if "json" not in response.headers.get("content-type", "").lower():
+        raise RuntimeError(
+            f"GitHub Models returned {response.headers.get('content-type')}: {response.text[:200]}"
+        )
     content = response.json()["choices"][0]["message"]["content"]
     result = json.loads(content)
     if len(result.get("screenshotHeadlines", [])) != 10:

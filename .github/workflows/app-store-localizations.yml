@@ -15,7 +15,7 @@ jobs:
       - name: Generate all App Store languages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_MODELS_MODEL: openai/gpt-4o-mini
+          GITHUB_MODELS_MODEL: openai/gpt-4o
         run: python Scripts/build-app-store-localizations.py
       - name: Validate localization limits
         run: python Scripts/validate-app-store-assets.py --metadata-only

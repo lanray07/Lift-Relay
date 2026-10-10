@@ -37,7 +37,7 @@ def get(path: str, params: dict | None = None) -> dict:
 
 def main() -> None:
     library = get(f"/apps/{APP_ID}/assetLibrary")["data"]
-    ref_data = get("/appAssetLibraryRefData", {"limit": 200})["data"]
+    ref_data = get("/appAssetLibraryRefData")["data"]
     relevant = []
     for item in ref_data:
         attributes = item.get("attributes", {})
