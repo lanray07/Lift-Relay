@@ -123,10 +123,22 @@ def ensure_version_localization(api: ASC, version_id: str, locale: str, copy: di
 
 
 def app_info_resource(api: ASC) -> dict:
-    data = api.request("GET", f"/apps/{APP_ID}/appInfos", params={"limit": 20})["data"]
+    data = api.request(
+        "GET", f"/apps/{APP_ID}/appInfos",
+        params={"fields[appInfos]": "state", "limit": 20},
+    )["data"]
     if not data:
         raise RuntimeError("No appInfo resource found")
-    return data[0]
+    # App Store Connect retains superseded app-info records. Localizations are
+    # unique across the app, but writes must target the active record; choosing
+    # the API's first (usually oldest) record causes false duplicate-locale
+    # conflicts when a localization already belongs to the current record.
+    active = [item for item in data
+              if item.get("attributes", {}).get("state") != "REPLACED_WITH_NEW_INFO"]
+    if len(active) != 1:
+        states = [(item["id"], item.get("attributes", {}).get("state")) for item in data]
+        raise RuntimeError(f"Expected one active appInfo; found {len(active)}: {states}")
+    return active[0]
 
 
 def app_info_localizations(api: ASC, app_info_id: str) -> dict[str, dict]:
