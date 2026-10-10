@@ -61,7 +61,13 @@ def main() -> None:
     )
     images = get_all(
         f"/appAssetLibraries/{library['id']}/images",
-        {"fields[appAssetLibraryImages]": "referenceName,state,placements", "limit": 200},
+        {
+            "fields[appAssetLibraryImages]": "referenceName,state,placements",
+            "fields[appAssetLibraryPlacements]": "placementType,placementGroup",
+            "include": "placements",
+            "limit[placements]": 10,
+            "limit": 200,
+        },
     )
     lift_relay_images = [
         item for item in images
