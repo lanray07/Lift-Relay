@@ -29,7 +29,9 @@ DEVICE_SIZES = {
 
 def font_candidates(locale: str, bold: bool) -> list[Path]:
     windows = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
-    if locale.startswith("zh-Hans"):
+    if locale.startswith(RTL_PREFIXES):
+        names = ["Nirmala.ttc", "arialbd.ttf" if bold else "arial.ttf"]
+    elif locale.startswith("zh-Hans"):
         names = ["msyhbd.ttc", "msyh.ttc"]
     elif locale.startswith("zh-Hant"):
         names = ["msjhbd.ttc", "msjh.ttc"]
@@ -165,7 +167,8 @@ def screenshot_frame(source: Image.Image, locale: str, headline: str, size: tupl
     return canvas.convert("RGB")
 
 
-def product_asset(source: Image.Image, locale: str, headline: str, size: tuple[int, int], variant: str) -> Image.Image:
+def product_asset(source: Image.Image, locale: str, headline: str, subtitle: str,
+                  size: tuple[int, int], variant: str) -> Image.Image:
     width, height = size
     canvas = ImageOps.fit(source, size, method=Image.Resampling.LANCZOS).convert("RGBA")
     gradient = Image.new("L", (width, 1))
@@ -180,8 +183,14 @@ def product_asset(source: Image.Image, locale: str, headline: str, size: tuple[i
     draw_headline(canvas, locale, headline, int(height * .24), int(width * .46), int(height * .53), max(72, height // 8))
     if variant == "search":
         small = load_font(locale, max(28, height // 35), bold=False)
-        draw.text((int(width * .075), int(height * .86)), "WORKOUT • GYM • STRENGTH",
-                  font=small, fill=WHITE, anchor="la")
+        rtl = locale.startswith(RTL_PREFIXES)
+        position = (int(width * (.925 if rtl else .075)), int(height * .86))
+        try:
+            draw.text(position, subtitle, font=small, fill=WHITE,
+                      anchor="ra" if rtl else "la", direction="rtl" if rtl else "ltr")
+        except (KeyError, ValueError):
+            draw.text(position, subtitle, font=small, fill=WHITE,
+                      anchor="ra" if rtl else "la")
     return canvas.convert("RGB")
 
 
@@ -193,18 +202,23 @@ def render_locale(locale: str, copy: dict, output_root: Path) -> None:
     if len(headlines) != 10:
         raise RuntimeError(f"Expected ten headlines for {locale}")
     locale_dir = output_root / locale
+    selections = {
+        "iPhoneDuoOuter": [0, 2, 4, 6, 8],
+        "iPhoneDuoInner": [1, 3, 5, 7, 9],
+    }
     for device, size in DEVICE_SIZES.items():
         target = locale_dir / device
         target.mkdir(parents=True, exist_ok=True)
-        for index, (source, headline) in enumerate(zip(sources, headlines), start=1):
-            image = screenshot_frame(source, locale, headline, size, index)
+        for source_index in selections[device]:
+            index = source_index + 1
+            image = screenshot_frame(sources[source_index], locale, headlines[source_index], size, index)
             image.save(target / f"{index:02d}.jpg", quality=91, optimize=True, progressive=True)
 
     product_dir = locale_dir / "ProductPage"
     product_dir.mkdir(parents=True, exist_ok=True)
-    header = product_asset(sources[9], locale, headlines[9], (3840, 1646), "header")
+    header = product_asset(sources[9], locale, headlines[9], copy["subtitle"], (3840, 1646), "header")
     header.save(product_dir / "header-3840x1646.jpg", quality=92, optimize=True, progressive=True)
-    search = product_asset(sources[4], locale, headlines[4], (1920, 1280), "search")
+    search = product_asset(sources[0], locale, headlines[4], copy["subtitle"], (1920, 1280), "search")
     search.save(product_dir / "search-1920x1280.jpg", quality=92, optimize=True, progressive=True)
 
 

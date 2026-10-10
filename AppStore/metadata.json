@@ -1,96 +1,961 @@
 {
-  "limits": { "name": 30, "subtitle": 30, "promotionalText": 170, "description": 4000, "keywordsBytes": 100 },
+  "limits": {
+    "name": 30,
+    "subtitle": 30,
+    "promotionalText": 170,
+    "description": 4000,
+    "keywordsBytes": 100
+  },
   "localizations": {
-    "en-GB": {
+    "ar-SA": {
+      "name": "Lift Relay: تمارين النادي",
+      "subtitle": "مخطط التمرين وتتبع القوة",
+      "promotionalText": "لا ينبغي أن يعتمد تمرينك على نادٍ فارغ. عدّل جلسة اليوم حسب المعدات المتاحة فعلاً.",
+      "description": "النادي مزدحم، لكن تمرينك لا يجب أن يتوقف.\n\nيكيّف Lift Relay التمارين المنظمة عندما تكون المعدات مشغولة. حدّد التمرين المخطط والمعدات المتاحة لتحصل على بدائل واضحة تراعي هدفك ونمط الحركة. سجّل الجولات والتكرارات والأوزان، وأعد بناء بقية الجلسة عبر Relay Mode، واحتفظ في السجل بالتمرين المخطط والمنفذ معاً.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "مخطط تمارين,متتبع أداء النادي,سجل تدريبات القوة",
+      "screenshotHeadlines": [
+        "مخطط تمارين للأندية الرياضية المزدحمة",
+        "استبدال ذكي للتمارين",
+        "إنقاذ كل جلسة تمرين",
+        "التكيف مع المعدات المتاحة",
+        "تسجيل مجموعات الرفع صوتياً",
+        "التدريب عند ضيق الوقت",
+        "تتبع التقدم في القوة",
+        "حفظ ملف تعريف لكل نادٍ رياضي",
+        "خطط. استبدل. واصل الحركة.",
+        "ابنِ العضلات. حافظ على الزخم."
+      ]
+    },
+    "bn": {
       "name": "Lift Relay: Gym Workout",
-      "subtitle": "Workout Planner & Gym Tracker",
-      "promotionalText": "Your workout shouldn't depend on an empty gym. Adapt today's session around the equipment you can actually use.",
-      "description": "THE GYM IS BUSY. YOUR WORKOUT DOESN'T HAVE TO STOP.\n\nLift Relay adapts structured workouts when equipment isn't available. Tell it what you planned and what is free; Workout Rescue suggests clear alternatives while keeping your goal, movement pattern and training history in view.\n\nLog sets, reps and loads, relay the remainder of a disrupted session, shorten a workout when time changes, use hands-free logging, review planned versus performed exercises, and save equipment for each gym. Core logging and local substitutions work offline.\n\nLift Relay is a fitness tool, not medical advice. Some advanced features require Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-      "keywords": "workout planner,gym tracker,strength log,exercise swaps,weight training,fitness coach"
+      "subtitle": "ওয়ার্কআউট প্ল্যানার ও জিম…",
+      "promotionalText": "বর্তমানে উপলব্ধ সরঞ্জামের সাথে প্রতিটি জিম সেশন মানিয়ে নিন। ওয়ার্কআউটের পরিকল্পনা করুন, ব্যায়াম পরিবর্তন (swap) করুন, স্ট্রেন্থ ট্রেনিংয়ের তথ্য রেকর্ড করুন এবং আপনার…",
+      "description": "জিম ভিড়ে ঠাসা? আপনার ওয়ার্কআউট থামার কোনো কারণ নেই।\n\nপ্রয়োজনীয় সরঞ্জাম খালি না থাকলে 'লিফট রিলে' (Lift Relay) আপনার পরিকল্পিত ওয়ার্কআউটকে মানিয়ে নেয়। আপনার পরিকল্পনা এবং বর্তমানে খালি থাকা সরঞ্জামের ওপর ভিত্তি করে এমন ব্যায়াম বেছে নিন যা আপনার প্রশিক্ষণের লক্ষ্য ও মুভমেন্ট প্যাটার্ন ঠিক রাখে। সেট, রেপস (reps) ও ওজনের তথ্য রেকর্ড করুন; 'রিলে মোড'-এর মাধ্যমে ব্যাহত সেশন পুনরায় সাজান; 'টাইম রেসকিউ'-এর মাধ্যমে সময় বাঁচান; ভয়েস লগিং ব্যবহার করুন; শক্তির উন্নতির পর্যালোচনা করুন এবং প্রতিটি জিমের সরঞ্জামের তথ্য সংরক্ষণ করুন। মূল ওয়ার্কআউট লগিং এবং বিকল্প ব্যায়ামের সুবিধাগুলো অফলাইনেও কাজ করে।\n\n'লিফট রিলে' একটি ফিটনেস টুল, কোনো চিকিৎসা পরামর্শ নয়। কিছু উন্নত ফিচারের জন্য 'লিফট রিলে প্রো' (Lift Relay Pro) প্রয়োজন।\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ওয়ার্কআউট প্ল্যানার,জিম ট্র্যাকার",
+      "screenshotHeadlines": [
+        "ব্যস্ত জিমের জন্য ওয়ার্কআউট প্ল্যানার",
+        "স্মার্ট ব্যায়াম পরিবর্তন (swaps)",
+        "প্রতিটি ওয়ার্কআউট বাঁচান",
+        "উপলব্ধ সরঞ্জামের সাথে মানিয়ে নিন",
+        "ভয়েস কমান্ডের মাধ্যমে লিফটিং সেট রেকর্ড করুন",
+        "সময় কম থাকলেও প্রশিক্ষণ চালিয়ে যান",
+        "শক্তির উন্নতির হিসাব রাখুন",
+        "প্রতিটি জিমের প্রোফাইল সংরক্ষণ করুন",
+        "পরিকল্পনা করুন। পরিবর্তন করুন। এগিয়ে যান।",
+        "পেশী গঠন করুন। গতি বজায় রাখুন।"
+      ]
     },
-    "es-ES": {
-      "name": "Lift Relay: Entreno de gym",
-      "subtitle": "Planificador y registro gym",
-      "promotionalText": "Tu entrenamiento no debería depender de un gimnasio vacío. Adapta la sesión al equipo que está libre.",
-      "description": "EL GIMNASIO ESTÁ LLENO. TU ENTRENAMIENTO NO TIENE QUE PARAR.\n\nLift Relay adapta entrenamientos estructurados cuando el equipo no está disponible. Indica qué habías planeado y qué material está libre para recibir alternativas claras que respetan el objetivo y el patrón de movimiento. Registra series, repeticiones y cargas, reorganiza la sesión con Relay Mode y conserva el ejercicio planeado junto al realizado. El registro básico funciona sin conexión.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "fr-FR": {
-      "name": "Lift Relay : Entraînement",
-      "subtitle": "Programme et suivi muscu",
-      "promotionalText": "Votre entraînement ne devrait pas dépendre d'une salle vide. Adaptez la séance au matériel disponible.",
-      "description": "LA SALLE EST PLEINE. VOTRE SÉANCE CONTINUE.\n\nLift Relay adapte vos entraînements structurés quand un équipement est indisponible. Indiquez le mouvement prévu et le matériel libre pour obtenir des alternatives claires qui respectent votre objectif. Enregistrez séries, répétitions et charges, réorganisez la séance avec Relay Mode et conservez dans l'historique l'exercice prévu comme celui réellement effectué.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "de-DE": {
+    "ca": {
       "name": "Lift Relay: Gym Workout",
-      "subtitle": "Trainingsplan & Gym-Tracker",
-      "promotionalText": "Dein Training sollte nicht von einem leeren Studio abhängen. Passe es an die verfügbaren Geräte an.",
-      "description": "DAS FITNESSSTUDIO IST VOLL. DEIN TRAINING GEHT WEITER.\n\nLift Relay passt strukturierte Workouts an, wenn Geräte belegt sind. Gib die geplante Übung und verfügbare Ausstattung an und erhalte nachvollziehbare Alternativen, die Trainingsziel und Bewegungsmuster berücksichtigen. Protokolliere Sätze, Wiederholungen und Gewichte, baue die restliche Einheit im Relay Mode um und speichere geplante sowie tatsächlich ausgeführte Übungen.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "it-IT": {
-      "name": "Lift Relay: Workout Palestra",
-      "subtitle": "Scheda e diario palestra",
-      "promotionalText": "Il tuo allenamento non deve dipendere da una palestra vuota. Adattalo agli attrezzi disponibili.",
-      "description": "LA PALESTRA È AFFOLLATA. IL TUO ALLENAMENTO CONTINUA.\n\nLift Relay adatta gli allenamenti strutturati quando un attrezzo non è disponibile. Indica cosa avevi programmato e cosa è libero per ricevere alternative chiare che rispettano obiettivo e schema motorio. Registra serie, ripetizioni e carichi, ricostruisci la sessione con Relay Mode e conserva nello storico sia l'esercizio pianificato sia quello eseguito.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "pt-PT": {
-      "name": "Lift Relay: Treino de Ginásio",
-      "subtitle": "Plano e registo de treino",
-      "promotionalText": "O seu treino não deve depender de um ginásio vazio. Adapte a sessão ao equipamento disponível.",
-      "description": "O GINÁSIO ESTÁ CHEIO. O SEU TREINO NÃO TEM DE PARAR.\n\nO Lift Relay adapta treinos estruturados quando o equipamento está ocupado. Indique o exercício planeado e o material disponível para receber alternativas claras que respeitam o objetivo e o padrão de movimento. Registe séries, repetições e cargas, reorganize a sessão com Relay Mode e guarde o exercício planeado e o realizado.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "ja": {
-      "name": "Lift Relay：筋トレ記録",
-      "subtitle": "ワークアウト計画と筋トレ管理",
-      "promotionalText": "混雑したジムでも、トレーニングは止めない。今使える器具に合わせて、その日のメニューを調整します。",
-      "description": "ジムが混んでいても、ワークアウトは終わりません。\n\nLift Relayは、予定した器具が使えないときに構成されたトレーニングを調整します。予定種目と空いている器具を入力すると、目的や動作パターンを考慮した代替案を分かりやすく提示します。セット、回数、重量を記録し、Relay Modeで残りのメニューを再構成。予定した種目と実際に行った種目の両方を履歴に残せます。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-    },
-    "ko": {
-      "name": "Lift Relay: 헬스 운동 기록",
-      "subtitle": "운동 계획과 근력 트래커",
-      "promotionalText": "헬스장이 붐벼도 운동은 멈출 필요가 없습니다. 지금 사용할 수 있는 기구에 맞춰 세션을 조정하세요.",
-      "description": "헬스장이 붐벼도 운동은 계속됩니다.\n\nLift Relay는 계획한 기구를 사용할 수 없을 때 구조화된 운동을 조정합니다. 예정 운동과 사용 가능한 기구를 알려 주면 목표와 움직임 패턴을 고려한 대안을 제안합니다. 세트, 반복 수, 중량을 기록하고 Relay Mode로 남은 세션을 재구성하며 계획한 운동과 실제 수행한 운동을 함께 보관하세요.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "subtitle": "Planificador d'entrenaments…",
+      "promotionalText": "Adapta cada sessió de gimnàs a l'equipament disponible en cada moment. Planifica entrenaments, canvia exercicis, registra l'entrenament de força i mantén el ritme.",
+      "description": "EL GIMNÀS ESTÀ PLE. L'ENTRENAMENT NO S'HA D'ATURAR.\n\nLift Relay adapta entrenaments estructurats quan l'equipament no està disponible. Tria el que havies planificat i el que està lliure per obtenir suggeriments de canvi d'exercici que respectin el teu objectiu d'entrenament i el patró de moviment. Registra sèries, repeticions i pes; reconstrueix una sessió interrompuda amb el mode Relay; escurça-la amb Time Rescue; utilitza el registre per veu; revisa el progrés de força i desa l'equipament de cada gimnàs. Les funcions bàsiques de registre d'entrenament i les substitucions locals funcionen sense connexió.\n\nLift Relay és una eina de fitness, no ofereix assessorament mèdic. Algunes funcions avançades requereixen Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificador d'entrenaments,seguiment al gimnàs,registre de força,canvis d'exercici",
+      "screenshotHeadlines": [
+        "Planificador d'entrenaments per a gimnasos concorreguts",
+        "Canvis d'exercici intel·ligents",
+        "Salva qualsevol entrenament",
+        "Adapta't a l'equipament disponible",
+        "Registra sèries d'aixecament per veu",
+        "Entrena quan tinguis poc temps",
+        "Segueix el progrés de força",
+        "Desa el perfil de cada gimnàs",
+        "Planifica. Canvia. Continua movent-te.",
+        "Guanya múscul. Mantén el ritme."
+      ]
     },
     "zh-Hans": {
       "name": "Lift Relay：健身训练记录",
       "subtitle": "健身计划与力量追踪",
       "promotionalText": "健身房再拥挤，训练也不必停止。根据当前可用器械，快速调整今天的计划。",
-      "description": "健身房很忙，你的训练不必停止。\n\n当计划使用的器械被占用时，Lift Relay 会调整结构化训练。告诉应用原计划动作和当前可用器械，即可获得兼顾训练目标与动作模式的清晰替代建议。记录组数、次数和重量，用 Relay Mode 重组剩余训练，并在历史中同时保留计划动作与实际动作。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "description": "健身房很忙，你的训练不必停止。\n\n当计划使用的器械被占用时，Lift Relay 会调整结构化训练。告诉应用原计划动作和当前可用器械，即可获得兼顾训练目标与动作模式的清晰替代建议。记录组数、次数和重量，用 Relay Mode 重组剩余训练，并在历史中同时保留计划动作与实际动作。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "健身计划,训练追踪,力量训练记录,动作替换,重量训练,健身教练",
+      "screenshotHeadlines": [
+        "专为繁忙健身房设计的训练规划工具",
+        "智能动作替换",
+        "拯救每一次训练",
+        "适应现有器械",
+        "语音记录训练组数",
+        "时间紧迫也能训练",
+        "追踪力量进步",
+        "保存各健身房配置",
+        "规划。替换。保持节奏。",
+        "增肌。保持动力。"
+      ]
     },
     "zh-Hant": {
       "name": "Lift Relay：健身訓練紀錄",
       "subtitle": "健身計畫與力量追蹤",
       "promotionalText": "健身房再擁擠，訓練也不必停止。依照目前可用器材，快速調整今天的計畫。",
-      "description": "健身房很忙，你的訓練不必停止。\n\n當預定器材被占用時，Lift Relay 會調整結構化訓練。告訴 App 原定動作與目前可用器材，即可取得兼顧訓練目標與動作模式的清楚替代建議。記錄組數、次數和重量，用 Relay Mode 重組剩餘訓練，並在歷史中同時保留原定動作與實際動作。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "description": "健身房很忙，你的訓練不必停止。\n\n當預定器材被占用時，Lift Relay 會調整結構化訓練。告訴 App 原定動作與目前可用器材，即可取得兼顧訓練目標與動作模式的清楚替代建議。記錄組數、次數和重量，用 Relay Mode 重組剩餘訓練，並在歷史中同時保留原定動作與實際動作。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "健身計畫,健身房追蹤,肌力記錄,動作替換,肌力訓練,健身教練",
+      "screenshotHeadlines": [
+        "繁忙健身房的健身計劃",
+        "智慧動作替換",
+        "拯救每一次訓練",
+        "根據現有器材進行調整",
+        "語音紀錄舉重組數",
+        "時間緊迫也能訓練",
+        "追蹤力量進步",
+        "保存所有健身房檔案",
+        "計劃。替換。持續運動。",
+        "增肌。保持動力。"
+      ]
     },
-    "ar": {
-      "name": "Lift Relay: تمارين النادي",
-      "subtitle": "مخطط التمرين وتتبع القوة",
-      "promotionalText": "لا ينبغي أن يعتمد تمرينك على نادٍ فارغ. عدّل جلسة اليوم حسب المعدات المتاحة فعلاً.",
-      "description": "النادي مزدحم، لكن تمرينك لا يجب أن يتوقف.\n\nيكيّف Lift Relay التمارين المنظمة عندما تكون المعدات مشغولة. حدّد التمرين المخطط والمعدات المتاحة لتحصل على بدائل واضحة تراعي هدفك ونمط الحركة. سجّل الجولات والتكرارات والأوزان، وأعد بناء بقية الجلسة عبر Relay Mode، واحتفظ في السجل بالتمرين المخطط والمنفذ معاً.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+    "hr": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Planer treninga i praćenje…",
+      "promotionalText": "Prilagodi svaki trening opremi koja je trenutno dostupna. Planiraj treninge, mijenjaj vježbe, bilježi trening snage i održi kontinuitet.",
+      "description": "TERETANA JE PUNA. TVOJ TRENING NE MORA STATI.\n\nLift Relay prilagođava strukturirane treninge kada određena oprema nije dostupna. Odaberi planiranu vježbu i onu koja je slobodna te dobij prijedlog zamjenske vježbe koja čuva tvoj cilj treninga i obrazac pokreta. Bilježi serije, ponavljanja i težine, reorganiziraj prekinuti trening uz način rada „Relay”, skrati ga opcijom „Time Rescue”, koristi glasovni unos, prati napredak u snazi ​​i spremi podatke o opremi svake teretane. Osnovne funkcije bilježenja treninga i zamjene vježbi rade i bez internetske veze.\n\nLift Relay je alat za fitness, a ne medicinski savjet. Neke napredne značajke zahtijevaju pretplatu na Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planer treninga,praćenje treninga,evidencija snage,zamjena vježbi,trening s utezima,fitness trener",
+      "screenshotHeadlines": [
+        "Planer treninga za prometne teretane",
+        "Pametna zamjena vježbi",
+        "Spasi svaki trening",
+        "Prilagodi se dostupnoj opremi",
+        "Glasovni unos serija vježbi",
+        "Treniraj kad imaš malo vremena",
+        "Prati napredak u snazi",
+        "Spremi profil svake teretane",
+        "Planiraj. Zamijeni. Nastavi dalje.",
+        "Izgradi mišiće. Održi kontinuitet."
+      ]
     },
-    "hi": {
-      "name": "Lift Relay: जिम वर्कआउट",
-      "subtitle": "वर्कआउट प्लान और जिम ट्रैकर",
-      "promotionalText": "आपका वर्कआउट खाली जिम पर निर्भर नहीं होना चाहिए। उपलब्ध उपकरण के अनुसार आज का सत्र बदलें।",
-      "description": "जिम व्यस्त है, पर आपका वर्कआउट रुकना ज़रूरी नहीं।\n\nजब कोई उपकरण उपलब्ध न हो, Lift Relay आपके व्यवस्थित वर्कआउट को अनुकूलित करता है। नियोजित व्यायाम और उपलब्ध उपकरण बताएँ और लक्ष्य व मूवमेंट पैटर्न को ध्यान में रखने वाले स्पष्ट विकल्प पाएँ। सेट, रेप और वज़न लॉग करें, Relay Mode से बचा हुआ सत्र बनाएँ और नियोजित व वास्तविक व्यायाम दोनों का इतिहास रखें।\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+    "cs": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Plánovač tréninků a…",
+      "promotionalText": "Přizpůsobte každý trénink vybavení, které je právě k dispozici. Plánujte tréninky, měňte cviky, zaznamenávejte silový trénink a udržte si tempo.",
+      "description": "POSILOVNA JE PLNÁ. VÁŠ TRÉNINK NEMUSÍ SKONČIT.\n\nLift Relay přizpůsobí strukturovaný trénink, pokud zrovna není k dispozici potřebné vybavení. Vyberte si plánovaný cvik a ten, který je volný – aplikace navrhne vhodnou náhradu, která zachová váš tréninkový cíl i pohybový vzorec. Zaznamenávejte série, opakování a zátěž, upravte narušený trénink pomocí režimu Relay, zkraťte jej funkcí Time Rescue, využívejte hlasový záznam, sledujte pokroky v síle a ukládejte si vybavení jednotlivých posiloven. Základní funkce záznamu tréninku a návrhy náhradních cviků fungují i ​​offline.\n\nLift Relay je fitness nástroj, nikoli lékařské doporučení. Některé pokročilé funkce vyžadují verzi Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "plánovač tréninků,sledování cvičení,záznam silového tréninku,náhrady cviků",
+      "screenshotHeadlines": [
+        "Plánovač tréninků pro rušné posilovny",
+        "Chytré náhrady cviků",
+        "Zachraňte každý trénink",
+        "Přizpůsobte se dostupnému vybavení",
+        "Zaznamenávejte série hlasem",
+        "Trénujte, i když máte málo času",
+        "Sledujte pokroky v síle",
+        "Uložte si profil každé posilovny",
+        "Plánujte. Měňte. Pokračujte.",
+        "Budujte svaly. Udržte si tempo."
+      ]
+    },
+    "da": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Træningsplanlægger og…",
+      "promotionalText": "Tilpas hver træning til det udstyr, der er tilgængeligt lige nu. Planlæg træning, udskift øvelser, log styrketræning og hold momentum.",
+      "description": "DER ER TRAVLT I FITNESSCENTERET. DIN TRÆNING BEHØVER IKKE AT STOPPE.\n\nLift Relay tilpasser strukturerede træningspas, når udstyret ikke er ledigt. Vælg din planlagte træning og se, hvad der er ledigt, for at få forslag til øvelsesudskiftninger, der bevarer dit træningsmål og bevægelsesmønster. Log sæt, gentagelser og vægt, omstrukturer et afbrudt pas med Relay Mode, forkort det med Time Rescue, brug stemmelogning, følg din styrkefremgang og gem udstyrsprofiler for hvert center. Grundlæggende logning af træning og lokale øvelsesudskiftninger fungerer offline.\n\nLift Relay er et træningsværktøj, ikke lægelig rådgivning. Nogle avancerede funktioner kræver Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "træningsplanlægger,træningslog,styrkelog,øvelsesudskiftning,vægttræning,fitnesscoach",
+      "screenshotHeadlines": [
+        "Træningsplanlægger til travle centre",
+        "Smarte øvelsesudskiftninger",
+        "Redd enhver træning",
+        "Tilpas til tilgængeligt udstyr",
+        "Log løftesæt med stemmen",
+        "Træn, når tiden er knap",
+        "Følg styrkefremgang",
+        "Gem profiler for hvert center",
+        "Planlæg. Udskift. Hold dampen oppe.",
+        "Opbyg muskler. Hold momentum."
+      ]
     },
     "nl-NL": {
       "name": "Lift Relay: Gym Workout",
       "subtitle": "Workoutplanner en gymtracker",
       "promotionalText": "Je training mag niet afhangen van een lege sportschool. Pas je sessie aan op de apparaten die vrij zijn.",
-      "description": "DE SPORTSCHOOL IS DRUK. JE TRAINING GAAT DOOR.\n\nLift Relay past gestructureerde workouts aan wanneer apparatuur bezet is. Geef aan welke oefening gepland stond en wat beschikbaar is, en krijg duidelijke alternatieven die rekening houden met je doel en bewegingspatroon. Log sets, herhalingen en gewicht, bouw de resterende sessie opnieuw op met Relay Mode en bewaar zowel de geplande als uitgevoerde oefening.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "description": "DE SPORTSCHOOL IS DRUK. JE TRAINING GAAT DOOR.\n\nLift Relay past gestructureerde workouts aan wanneer apparatuur bezet is. Geef aan welke oefening gepland stond en wat beschikbaar is, en krijg duidelijke alternatieven die rekening houden met je doel en bewegingspatroon. Log sets, herhalingen en gewicht, bouw de resterende sessie opnieuw op met Relay Mode en bewaar zowel de geplande als uitgevoerde oefening.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "workoutplanner,gym-tracker,krachtlogboek,oefeningswissels,krachttraining,fitnesscoach",
+      "screenshotHeadlines": [
+        "Workoutplanner voor drukke sportscholen",
+        "Slimme oefeningswissels",
+        "Red elke workout",
+        "Aanpassen aan beschikbare apparatuur",
+        "Registreer sets via spraak",
+        "Train als je weinig tijd hebt",
+        "Volg je krachtvooruitgang",
+        "Sla elk sportschoolprofiel op",
+        "Plan. Wissel. Blijf in beweging.",
+        "Bouw spieren op. Behoud je momentum."
+      ]
+    },
+    "en-AU": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Workout Planner & Gym Tracker",
+      "promotionalText": "Adapt every gym session to the equipment available now. Plan workouts, swap exercises, log strength training and keep momentum.",
+      "description": "THE GYM IS BUSY. YOUR WORKOUT DOESN'T HAVE TO STOP.\n\nLift Relay adapts structured workouts when equipment isn't available. Choose what you planned and what is free to get clear exercise swaps that preserve your training goal and movement pattern. Log sets, reps and weight, rebuild a disrupted session with Relay Mode, shorten it with Time Rescue, use voice logging, review strength progress and save each gym's equipment. Core workout logging and local substitutions work offline.\n\nLift Relay is a fitness tool, not medical advice. Some advanced features require Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "workout planner,gym tracker,strength log,exercise swaps,weight training,fitness coach",
+      "screenshotHeadlines": [
+        "Workout planner for busy gyms",
+        "Smart exercise swaps",
+        "Rescue every workout",
+        "Adapt to available equipment",
+        "Log lifting sets by voice",
+        "Train when time is tight",
+        "Track strength progress",
+        "Save every gym profile",
+        "Plan. Swap. Keep moving.",
+        "Build muscle. Keep momentum."
+      ]
+    },
+    "en-CA": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Workout Planner & Gym Tracker",
+      "promotionalText": "Adapt every gym session to the equipment available now. Plan workouts, swap exercises, log strength training and keep momentum.",
+      "description": "THE GYM IS BUSY. YOUR WORKOUT DOESN'T HAVE TO STOP.\n\nLift Relay adapts structured workouts when equipment isn't available. Choose what you planned and what is free to get clear exercise swaps that preserve your training goal and movement pattern. Log sets, reps and weight, rebuild a disrupted session with Relay Mode, shorten it with Time Rescue, use voice logging, review strength progress and save each gym's equipment. Core workout logging and local substitutions work offline.\n\nLift Relay is a fitness tool, not medical advice. Some advanced features require Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "workout planner,gym tracker,strength log,exercise swaps,weight training,fitness coach",
+      "screenshotHeadlines": [
+        "Workout planner for busy gyms",
+        "Smart exercise swaps",
+        "Rescue every workout",
+        "Adapt to available equipment",
+        "Log lifting sets by voice",
+        "Train when time is tight",
+        "Track strength progress",
+        "Save every gym profile",
+        "Plan. Swap. Keep moving.",
+        "Build muscle. Keep momentum."
+      ]
+    },
+    "en-GB": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Workout Planner & Gym Tracker",
+      "promotionalText": "Your workout shouldn't depend on an empty gym. Adapt today's session around the equipment you can actually use.",
+      "description": "THE GYM IS BUSY. YOUR WORKOUT DOESN'T HAVE TO STOP.\n\nLift Relay adapts structured workouts when equipment isn't available. Tell it what you planned and what is free; Workout Rescue suggests clear alternatives while keeping your goal, movement pattern and training history in view.\n\nLog sets, reps and loads, relay the remainder of a disrupted session, shorten a workout when time changes, use hands-free logging, review planned versus performed exercises, and save equipment for each gym. Core logging and local substitutions work offline.\n\nLift Relay is a fitness tool, not medical advice. Some advanced features require Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "workout planner,gym tracker,strength log,exercise swaps,weight training,fitness coach",
+      "screenshotHeadlines": [
+        "Workout planner for busy gyms",
+        "Smart exercise swaps",
+        "Rescue every workout",
+        "Adapt to available equipment",
+        "Log lifting sets by voice",
+        "Train when time is tight",
+        "Track strength progress",
+        "Save every gym profile",
+        "Plan. Swap. Keep moving.",
+        "Build muscle. Keep momentum."
+      ]
+    },
+    "en-US": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Workout Planner & Gym Tracker",
+      "promotionalText": "Adapt every gym session to the equipment available now. Plan workouts, swap exercises, log strength training and keep momentum.",
+      "description": "THE GYM IS BUSY. YOUR WORKOUT DOESN'T HAVE TO STOP.\n\nLift Relay adapts structured workouts when equipment isn't available. Choose what you planned and what is free to get clear exercise swaps that preserve your training goal and movement pattern. Log sets, reps and weight, rebuild a disrupted session with Relay Mode, shorten it with Time Rescue, use voice logging, review strength progress and save each gym's equipment. Core workout logging and local substitutions work offline.\n\nLift Relay is a fitness tool, not medical advice. Some advanced features require Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "workout planner,gym tracker,strength log,exercise swaps,weight training,fitness coach",
+      "screenshotHeadlines": [
+        "Workout planner for busy gyms",
+        "Smart exercise swaps",
+        "Rescue every workout",
+        "Adapt to available equipment",
+        "Log lifting sets by voice",
+        "Train when time is tight",
+        "Track strength progress",
+        "Save every gym profile",
+        "Plan. Swap. Keep moving.",
+        "Build muscle. Keep momentum."
+      ]
+    },
+    "fi": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Treenisuunnittelija ja…",
+      "promotionalText": "Mukauta jokainen treeni käytettävissä oleviin laitteisiin. Suunnittele treenejä, vaihda liikkeitä, kirjaa voimaharjoittelua ja pidä yllä treenirytmiä.",
+      "description": "KUNTOSALI ON TÄYNNÄ. TREENISI EI TARVITSE KESKEYTYÄ.\n\nLift Relay mukauttaa suunnitellut treenit tilanteen mukaan, jos tarvittavia laitteita ei ole vapaana. Valitse suunniteltu liike ja vapaana oleva laite, niin saat ehdotuksen korvaavasta liikkeestä, joka säilyttää treenitavoitteesi ja liikeratasi. Kirjaa sarjat, toistot ja painot, pelasta keskeytynyt treeni Relay-tilalla, lyhennä sitä Time Rescue -toiminnolla, käytä puhekirjausta, seuraa voimakehitystä ja tallenna eri kuntosalien laitetiedot. Treenin peruskirjaus ja liikkeiden korvaaminen toimivat myös ilman verkkoyhteyttä.\n\nLift Relay on kuntoilutyökalu, ei lääketieteellinen neuvo. Jotkin edistyneet ominaisuudet vaativat Lift Relay Pro -version.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "treenisuunnittelija,kuntosaliseuranta,voimaharjoittelupäiväkirja,liikevaihdot,painoharjoittelu",
+      "screenshotHeadlines": [
+        "Treenisuunnittelija kiireisille saleille",
+        "Älykkäät liikevaihdot",
+        "Pelasta jokainen treeni",
+        "Mukauta käytettävissä oleviin laitteisiin",
+        "Kirjaa sarjat puheella",
+        "Treenaa kiireessä",
+        "Seuraa voimakehitystä",
+        "Tallenna kuntosaliprofiilit",
+        "Suunnittele. Vaihda. Jatka treeniä.",
+        "Kasvata lihaksia. Pidä yllä rytmiä."
+      ]
+    },
+    "fr-FR": {
+      "name": "Lift Relay : Entraînement",
+      "subtitle": "Programme et suivi muscu",
+      "promotionalText": "Votre entraînement ne devrait pas dépendre d'une salle vide. Adaptez la séance au matériel disponible.",
+      "description": "LA SALLE EST PLEINE. VOTRE SÉANCE CONTINUE.\n\nLift Relay adapte vos entraînements structurés quand un équipement est indisponible. Indiquez le mouvement prévu et le matériel libre pour obtenir des alternatives claires qui respectent votre objectif. Enregistrez séries, répétitions et charges, réorganisez la séance avec Relay Mode et conservez dans l'historique l'exercice prévu comme celui réellement effectué.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificateur d'entraînement,suivi de musculation,journal de musculation,remplacement d'exercices",
+      "screenshotHeadlines": [
+        "Planificateur d'entraînement pour salles fréquentées",
+        "Remplacement intelligent d'exercices",
+        "Sauvez chaque séance",
+        "Adaptation à l'équipement disponible",
+        "Saisie vocale des séries",
+        "Entraînez-vous même avec peu de temps",
+        "Suivi de la progression en force",
+        "Sauvegarde des profils de salle",
+        "Planifiez. Remplacez. Continuez.",
+        "Développez vos muscles. Gardez le rythme."
+      ]
+    },
+    "fr-CA": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Planificateur…",
+      "promotionalText": "Adaptez chaque séance à l'équipement disponible sur le moment. Planifiez vos entraînements, remplacez des exercices, consignez vos séances de musculation et gardez le…",
+      "description": "LA SALLE EST BONDÉE ? VOTRE ENTRAÎNEMENT NE DOIT PAS S'ARRÊTER POUR AUTANT.\n\nLift Relay adapte vos séances structurées lorsque l'équipement n'est pas disponible. Choisissez votre programme initial et les machines libres pour obtenir des suggestions de remplacement pertinentes, tout en respectant vos objectifs et les schémas de mouvement. Enregistrez vos séries, répétitions et charges, réorganisez une séance perturbée grâce au mode « Relay », raccourcissez-la avec « Time Rescue », utilisez la saisie vocale, suivez votre progression en force et sauvegardez la configuration de chaque salle. Les fonctions essentielles de suivi et de remplacement d'exercices fonctionnent hors ligne.\n\nLift Relay est un outil de fitness et ne constitue pas un avis médical. Certaines fonctionnalités avancées nécessitent Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificateur d'entraînement,suivi de musculation,journal de musculation,remplacement d'exercices",
+      "screenshotHeadlines": [
+        "Planificateur d'entraînement pour salles fréquentées",
+        "Remplacement intelligent d'exercices",
+        "Sauvez chaque séance",
+        "Adaptation à l'équipement disponible",
+        "Saisie vocale des séries",
+        "Entraînez-vous même avec peu de temps",
+        "Suivi de la progression en force",
+        "Sauvegarde des profils de salle",
+        "Planifiez. Remplacez. Continuez.",
+        "Développez vos muscles. Gardez le rythme."
+      ]
+    },
+    "de-DE": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Trainingsplan & Gym-Tracker",
+      "promotionalText": "Dein Training sollte nicht von einem leeren Studio abhängen. Passe es an die verfügbaren Geräte an.",
+      "description": "DAS FITNESSSTUDIO IST VOLL. DEIN TRAINING GEHT WEITER.\n\nLift Relay passt strukturierte Workouts an, wenn Geräte belegt sind. Gib die geplante Übung und verfügbare Ausstattung an und erhalte nachvollziehbare Alternativen, die Trainingsziel und Bewegungsmuster berücksichtigen. Protokolliere Sätze, Wiederholungen und Gewichte, baue die restliche Einheit im Relay Mode um und speichere geplante sowie tatsächlich ausgeführte Übungen.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "Workout-Planer,Fitnessstudio-Tracker,Krafttraining-Protokoll,Übungstausch,Hanteltraining",
+      "screenshotHeadlines": [
+        "Workout-Planer für volle Fitnessstudios",
+        "Intelligenter Übungstausch",
+        "Rette jedes Workout",
+        "Anpassung an verfügbare Geräte",
+        "Sätze per Spracheingabe protokollieren",
+        "Training bei Zeitmangel",
+        "Kraftfortschritt verfolgen",
+        "Profile für Fitnessstudios speichern",
+        "Planen. Tauschen. Dranbleiben.",
+        "Muskeln aufbauen. Am Ball bleiben."
+      ]
+    },
+    "el": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Σχεδιασμός Προπόνησης &…",
+      "promotionalText": "Προσαρμόστε κάθε προπόνηση στον διαθέσιμο εξοπλισμό. Σχεδιάστε προπονήσεις, αλλάξτε ασκήσεις, καταγράψτε την προπόνηση ενδυνάμωσης και διατηρήστε τον ρυθμό σας.",
+      "description": "ΤΟ ΓΥΜΝΑΣΤΗΡΙΟ ΕΙΝΑΙ ΓΕΜΑΤΟ. Η ΠΡΟΠΟΝΗΣΗ ΣΑΣ ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ ΝΑ ΣΤΑΜΑΤΗΣΕΙ.\n\nΤο Lift Relay προσαρμόζει τις δομημένες προπονήσεις όταν ο εξοπλισμός δεν είναι διαθέσιμος. Επιλέξτε αυτό που είχατε σχεδιάσει και δείτε ποιες επιλογές είναι ελεύθερες, λαμβάνοντας προτάσεις για εναλλακτικές ασκήσεις που διατηρούν τον προπονητικό σας στόχο και το μοτίβο κίνησης. Καταγράψτε σετ, επαναλήψεις και βάρη, αναδιαμορφώστε μια διακοπείσα προπόνηση με τη λειτουργία Relay Mode, συντομεύστε τη με το Time Rescue, χρησιμοποιήστε φωνητική καταγραφή, παρακολουθήστε την πρόοδο στη δύναμη και αποθηκεύστε τον εξοπλισμό κάθε γυμναστηρίου. Οι βασικές λειτουργίες καταγραφής προπόνησης και οι εναλλακτικές λύσεις ασκήσεων λειτουργούν και εκτός σύνδεσης (offline).\n\nΤο Lift Relay είναι ένα εργαλείο γυμναστικής και δεν παρέχει ιατρικές συμβουλές. Ορισμένες προηγμένες λειτουργίες απαιτούν το Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "σχεδιασμός προπόνησης,παρακολούθηση γυμναστηρίου",
+      "screenshotHeadlines": [
+        "Σχεδιασμός προπόνησης για πολυσύχναστα γυμναστήρια",
+        "Έξυπνες εναλλακτικές ασκήσεων",
+        "Διασώστε κάθε προπόνηση",
+        "Προσαρμογή στον διαθέσιμο εξοπλισμό",
+        "Φωνητική καταγραφή σετ άρσεων",
+        "Προπόνηση με περιορισμένο χρόνο",
+        "Παρακολούθηση προόδου στη δύναμη",
+        "Αποθήκευση προφίλ κάθε γυμναστηρίου",
+        "Σχεδιάστε. Αλλάξτε. Συνεχίστε.",
+        "Χτίστε μυϊκή μάζα. Διατηρήστε τον ρυθμό."
+      ]
+    },
+    "gu": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "વર્કઆઉટ પ્લાનર અને જિમ ટ્રેકર",
+      "promotionalText": "જિમમાં અત્યારે ઉપલબ્ધ સાધનો મુજબ તમારા વર્કઆઉટ સેશનમાં ફેરફાર કરો. વર્કઆઉટનું આયોજન કરો, કસરતો બદલો, સ્ટ્રેન્થ ટ્રેનિંગની વિગતો નોંધો અને તમારી ગતિ જાળવી રાખો.",
+      "description": "જિમમાં ભીડ છે? તો પણ તમારું વર્કઆઉટ અટકવું ન જોઈએ.\n\nજ્યારે જરૂરી સાધનો ઉપલબ્ધ ન હોય ત્યારે 'Lift Relay' તમારા સુવ્યવસ્થિત વર્કઆઉટ પ્લાનમાં ફેરફાર કરે છે. તમે જેનું આયોજન કર્યું હોય અને જે સાધનો ખાલી હોય તે પસંદ કરો; એપ તમને એવી કસરતો સૂચવશે જે તમારા તાલીમ લક્ષ્ય અને હલનચલનની પદ્ધતિને જાળવી રાખે. સેટ્સ, રેપ્સ (reps) અને વજનની વિગતો નોંધો, 'Relay Mode' વડે ખોરવાયેલા સેશનને ફરીથી ગોઠવો, 'Time Rescue' વડે સમય બચાવો, વૉઇસ લોગિંગનો ઉપયોગ કરો, તમારી શક્તિમાં થતી પ્રગતિ તપાસો અને દરેક જિમના સાધનોની માહિતી સાચવો. મુખ્ય વર્કઆઉટ લોગિંગ અને કસરતના વિકલ્પો (substitutions) ઑફલાઇન પણ કામ કરે છે.\n\n'Lift Relay' એ ફિટનેસ માટેનું સાધન છે, તબીબી સલાહ નથી. કેટલીક અદ્યતન સુવિધાઓ માટે 'Lift Relay Pro' ની જરૂર પડે છે.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "વર્કઆઉટ પ્લાનર,જિમ ટ્રેકર,કસરત બદલવી",
+      "screenshotHeadlines": [
+        "વ્યસ્ત જિમ માટે વર્કઆઉટ પ્લાનર",
+        "સ્માર્ટ રીતે કસરત બદલવાની સુવિધા",
+        "દરેક વર્કઆઉટને સફળ બનાવો",
+        "ઉપલબ્ધ સાધનો મુજબ અનુકૂલન",
+        "અવાજ દ્વારા લિફ્ટિંગ સેટ્સ નોંધો",
+        "સમય ઓછો હોય ત્યારે પણ તાલીમ લો",
+        "શક્તિમાં થતી પ્રગતિને ટ્રેક કરો",
+        "દરેક જિમની પ્રોફાઇલ સાચવો",
+        "આયોજન કરો. બદલો. આગળ વધતા રહો.",
+        "સ્નાયુઓ બનાવો. ગતિ જાળવી રાખો."
+      ]
+    },
+    "he": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "מתכנן אימונים ומעקב בחדר הכושר",
+      "promotionalText": "התאם כל אימון לציוד הזמין באותו רגע. תכנן אימונים, החלף תרגילים, תעד אימוני כוח ושמור על רצף והתמדה.",
+      "description": "חדר הכושר עמוס? האימון שלך לא חייב להיעצר.\n\nLift Relay מתאימה אימונים מובנים למצבים שבהם הציוד אינו זמין. בחר את התוכנית המקורית ואת הציוד הפנוי כדי לקבל הצעות להחלפת תרגילים ששומרות על מטרת האימון ועל דפוס התנועה. תעד סטים, חזרות ומשקלים, בנה מחדש אימון שנקטע בעזרת מצב Relay, קצר אותו בעזרת Time Rescue, השתמש בתיעוד קולי, עקוב אחר התקדמות בכוח ושמור את פרטי הציוד של כל מכון כושר. פונקציות הליבה של תיעוד האימון והחלפת התרגילים המקומית פועלות גם ללא חיבור לאינטרנט.\n\nLift Relay היא כלי עזר לכושר, ואינה מהווה ייעוץ רפואי. חלק מהתכונות המתקדמות דורשות מנוי Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "מתכנן אימונים,מעקב בחדר כושר,יומן אימוני כוח,מאמן כושר",
+      "screenshotHeadlines": [
+        "מתכנן אימונים לחדרי כושר עמוסים",
+        "החלפת תרגילים חכמה",
+        "הצלת כל אימון",
+        "התאמה לציוד זמין",
+        "תיעוד סטים קולי",
+        "אימון בלוח זמנים צפוף",
+        "מעקב אחר התקדמות בכוח",
+        "שמירת פרופיל לכל מכון כושר",
+        "תכנן. החלף. המשך להתאמן.",
+        "בנה שריר. שמור על המומנטום."
+      ]
+    },
+    "hi": {
+      "name": "Lift Relay: जिम वर्कआउट",
+      "subtitle": "वर्कआउट प्लान और जिम ट्रैकर",
+      "promotionalText": "आपका वर्कआउट खाली जिम पर निर्भर नहीं होना चाहिए। उपलब्ध उपकरण के अनुसार आज का सत्र बदलें।",
+      "description": "जिम व्यस्त है, पर आपका वर्कआउट रुकना ज़रूरी नहीं।\n\nजब कोई उपकरण उपलब्ध न हो, Lift Relay आपके व्यवस्थित वर्कआउट को अनुकूलित करता है। नियोजित व्यायाम और उपलब्ध उपकरण बताएँ और लक्ष्य व मूवमेंट पैटर्न को ध्यान में रखने वाले स्पष्ट विकल्प पाएँ। सेट, रेप और वज़न लॉग करें, Relay Mode से बचा हुआ सत्र बनाएँ और नियोजित व वास्तविक व्यायाम दोनों का इतिहास रखें।\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "वर्कआउट प्लानर,जिम ट्रैकर",
+      "screenshotHeadlines": [
+        "बिज़ी जिम के लिए वर्कआउट प्लानर",
+        "स्मार्ट एक्सरसाइज़ बदलना",
+        "हर वर्कआउट को बचाएं",
+        "उपलब्ध इक्विपमेंट के हिसाब से ढलें",
+        "वॉइस से लिफ़्टिंग सेट लॉग करें",
+        "कम समय में भी ट्रेनिंग करें",
+        "स्ट्रेंथ प्रोग्रेस ट्रैक करें",
+        "हर जिम प्रोफ़ाइल सेव करें",
+        "प्लान करें। बदलें। आगे बढ़ते रहें।",
+        "मसल बनाएं। गति बनाए रखें।"
+      ]
+    },
+    "hu": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Edzéstervező és edzéskövető",
+      "promotionalText": "Igazítsd az edzést az éppen elérhető eszközökhöz. Tervezz edzéseket, cserélj gyakorlatokat, rögzítsd az erősítő edzést, és tartsd fenn a lendületet.",
+      "description": "TELE VAN A TEREM? AZ EDZÉSNEK NEM KELL FÉLBEMARADNIA.\n\nA Lift Relay alkalmazkodik a strukturált edzéstervhez, ha bizonyos eszközök épp nem érhetők el. Válaszd ki a tervezett gyakorlatot és a szabadon használható eszközt: az alkalmazás olyan cseréket javasol, amelyek megőrzik az edzéscélt és a mozgásmintát. Rögzítsd a sorozatokat, ismétléseket és a súlyokat; mentsd meg a megzavart edzést a Relay móddal, rövidítsd le a Time Rescue funkcióval, használj hangalapú rögzítést, kövesd nyomon az erőnléti fejlődést, és mentsd el az egyes edzőtermek eszközparkját. Az alapvető edzésnaplózás és a gyakorlatcserék offline is működnek.\n\nA Lift Relay egy fitneszeszköz, nem nyújt orvosi tanácsot. Egyes speciális funkciókhoz Lift Relay Pro előfizetés szükséges.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "edzéstervező,edzéskövető,erőnléti napló,gyakorlatcserék,súlyzós edzés,fitneszedző",
+      "screenshotHeadlines": [
+        "Edzéstervező zsúfolt edzőtermekhez",
+        "Okos gyakorlatcserék",
+        "Mentsd meg az edzést",
+        "Alkalmazkodás az elérhető eszközökhöz",
+        "Sorozatok rögzítése hanggal",
+        "Edzés szűkös időkerettel",
+        "Erőnléti fejlődés követése",
+        "Edzőtermi profilok mentése",
+        "Tervezz. Cserélj. Haladj tovább.",
+        "Építs izmot. Tartsd fenn a lendületet."
+      ]
+    },
+    "id": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Perencana Latihan & Pelacak…",
+      "promotionalText": "Sesuaikan setiap sesi gym dengan peralatan yang tersedia saat itu juga. Rencanakan latihan, ganti gerakan, catat latihan kekuatan, dan jaga momentum Anda.",
+      "description": "GYM SEDANG RAMAI? LATIHAN ANDA TIDAK PERLU BERHENTI.\n\nLift Relay menyesuaikan latihan terstruktur saat peralatan yang dibutuhkan tidak tersedia. Pilih rencana awal dan peralatan yang kosong untuk mendapatkan saran penggantian gerakan yang tetap menjaga tujuan latihan serta pola gerakan Anda. Catat set, repetisi, dan beban; susun ulang sesi yang terganggu dengan Mode Relay; persingkat durasi dengan Time Rescue; gunakan pencatatan suara; pantau perkembangan kekuatan; serta simpan profil peralatan setiap gym. Fitur pencatatan latihan utama dan penggantian gerakan lokal dapat digunakan secara offline.\n\nLift Relay adalah alat bantu kebugaran, bukan saran medis. Beberapa fitur lanjutan memerlukan Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "perencana latihan,pelacak gym,catatan latihan kekuatan,penggantian gerakan,latihan beban",
+      "screenshotHeadlines": [
+        "Perencana latihan untuk gym yang ramai",
+        "Penggantian gerakan yang cerdas",
+        "Selamatkan setiap sesi latihan",
+        "Sesuaikan dengan peralatan yang tersedia",
+        "Catat set latihan angkat beban dengan suara",
+        "Tetap berlatih saat waktu terbatas",
+        "Pantau perkembangan kekuatan",
+        "Simpan profil setiap gym",
+        "Rencanakan. Ganti. Terus bergerak.",
+        "Bentuk otot. Jaga momentum."
+      ]
+    },
+    "it": {
+      "name": "Lift Relay: Workout Palestra",
+      "subtitle": "Scheda e diario palestra",
+      "promotionalText": "Il tuo allenamento non deve dipendere da una palestra vuota. Adattalo agli attrezzi disponibili.",
+      "description": "LA PALESTRA È AFFOLLATA. IL TUO ALLENAMENTO CONTINUA.\n\nLift Relay adatta gli allenamenti strutturati quando un attrezzo non è disponibile. Indica cosa avevi programmato e cosa è libero per ricevere alternative chiare che rispettano obiettivo e schema motorio. Registra serie, ripetizioni e carichi, ricostruisci la sessione con Relay Mode e conserva nello storico sia l'esercizio pianificato sia quello eseguito.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "pianificatore allenamenti,tracker palestra,registro forza,sostituzione esercizi,allenamento pesi",
+      "screenshotHeadlines": [
+        "Pianificatore di allenamenti per palestre affollate",
+        "Sostituzione intelligente degli esercizi",
+        "Salva ogni allenamento",
+        "Adattati all'attrezzatura disponibile",
+        "Registra le serie di sollevamento a voce",
+        "Allenati anche quando hai poco tempo",
+        "Monitora i progressi nella forza",
+        "Salva il profilo di ogni palestra",
+        "Pianifica. Sostituisci. Continua ad allenarti.",
+        "Costruisci muscoli. Mantieni il ritmo."
+      ]
+    },
+    "ja": {
+      "name": "Lift Relay：筋トレ記録",
+      "subtitle": "ワークアウト計画と筋トレ管理",
+      "promotionalText": "混雑したジムでも、トレーニングは止めない。今使える器具に合わせて、その日のメニューを調整します。",
+      "description": "ジムが混んでいても、ワークアウトは終わりません。\n\nLift Relayは、予定した器具が使えないときに構成されたトレーニングを調整します。予定種目と空いている器具を入力すると、目的や動作パターンを考慮した代替案を分かりやすく提示します。セット、回数、重量を記録し、Relay Modeで残りのメニューを再構成。予定した種目と実際に行った種目の両方を履歴に残せます。\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ワークアウトプランナー,ジムトラッカー,筋トレ記録,種目変更",
+      "screenshotHeadlines": [
+        "混雑したジムでも使えるワークアウトプランナー",
+        "スマートな種目変更",
+        "ワークアウトを最後までやり遂げる",
+        "利用可能な器具に合わせた調整",
+        "音声でセットを記録",
+        "時間がない時のトレーニング",
+        "筋力の進捗を記録",
+        "ジムごとの情報を保存",
+        "計画。変更。動き続ける。",
+        "筋肉を鍛え、勢いを維持する。"
+      ]
+    },
+    "kn": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "ವರ್ಕೌಟ್ ಪ್ಲಾನರ್ ಮತ್ತು ಜಿಮ್…",
+      "promotionalText": "ಪ್ರಸ್ತುತ ಲಭ್ಯವಿರುವ ಉಪಕರಣಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ನಿಮ್ಮ ಜಿಮ್ ಅವಧಿಯನ್ನು (ಸೆಷನ್) ಹೊಂದಿಸಿಕೊಳ್ಳಿ. ವ್ಯಾಯಾಮಗಳನ್ನು ಯೋಜಿಸಿ, ಬದಲಾಯಿಸಿ, ಶಕ್ತಿ ತರಬೇತಿಯನ್ನು ದಾಖಲಿಸಿ ಮತ್ತು ನಿಮ್ಮ ವೇಗವನ್ನು…",
+      "description": "ಜಿಮ್ ಜನಸಂದಣಿಯಿಂದ ಕೂಡಿದೆಯೇ? ನಿಮ್ಮ ವ್ಯಾಯಾಮ ನಿಲ್ಲಬೇಕಿಲ್ಲ.\n\nಉಪಕರಣಗಳು ಲಭ್ಯವಿಲ್ಲದಿದ್ದಾಗ 'ಲಿಫ್ಟ್ ರಿಲೇ' (Lift Relay) ವ್ಯವಸ್ಥಿತ ವ್ಯಾಯಾಮಗಳನ್ನು ಅದಕ್ಕೆ ತಕ್ಕಂತೆ ಬದಲಾಯಿಸುತ್ತದೆ. ನಿಮ್ಮ ತರಬೇತಿ ಗುರಿ ಮತ್ತು ಚಲನೆಯ ಮಾದರಿಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳುವಂತಹ ಸೂಕ್ತ ವ್ಯಾಯಾಮ ಬದಲಾವಣೆಗಳನ್ನು ಪಡೆಯಲು, ನಿಮ್ಮ ಯೋಜಿತ ವ್ಯಾಯಾಮ ಮತ್ತು ಲಭ್ಯವಿರುವ ಉಪಕರಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಸೆಟ್‌ಗಳು, ರೆಪ್‌ಗಳು (reps) ಮತ್ತು ತೂಕವನ್ನು ದಾಖಲಿಸಿ; 'ರಿಲೇ ಮೋಡ್' ಮೂಲಕ ಅಡಚಣೆಯಾದ ಅವಧಿಯನ್ನು ಮರುಹೊಂದಿಸಿ; 'ಟೈಮ್ ರೆಸ್ಕ್ಯೂ' (Time Rescue) ಮೂಲಕ ಸಮಯವನ್ನು ಉಳಿಸಿ; ಧ್ವನಿ ಮೂಲಕ ದಾಖಲಿಸುವ ಸೌಲಭ್ಯ ಬಳಸಿ; ಶಕ್ತಿಯ ಪ್ರಗತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಪ್ರತಿ ಜಿಮ್‌ನ ಉಪಕರಣಗಳ ವಿವರಗಳನ್ನು ಉಳಿಸಿ. ಪ್ರಮುಖ ವ್ಯಾಯಾಮ ದಾಖಲಾತಿ ಮತ್ತು ಸ್ಥಳೀಯ ಬದಲಾವಣೆಗಳು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿಯೂ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ.\n\n'ಲಿಫ್ಟ್ ರಿಲೇ' ಒಂದು ಫಿಟ್‌ನೆಸ್ ಸಾಧನವೇ ಹೊರತು ವೈದ್ಯಕೀಯ ಸಲಹೆಯಲ್ಲ. ಕೆಲವು ಮುಂದುವರಿದ ವೈಶಿಷ್ಟ್ಯಗಳಿಗೆ 'ಲಿಫ್ಟ್ ರಿಲೇ ಪ್ರೊ' (Lift Relay Pro) ಅಗತ್ಯವಿದೆ.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ವರ್ಕೌಟ್ ಪ್ಲಾನರ್,ಜಿಮ್ ಟ್ರ್ಯಾಕರ್",
+      "screenshotHeadlines": [
+        "ಜನನಿಬಿಡ ಜಿಮ್‌ಗಳಿಗಾಗಿ ವರ್ಕೌಟ್ ಪ್ಲಾನರ್",
+        "ಸ್ಮಾರ್ಟ್ ವ್ಯಾಯಾಮ ಬದಲಾವಣೆಗಳು",
+        "ಪ್ರತಿ ವ್ಯಾಯಾಮವನ್ನೂ ಉಳಿಸಿಕೊಳ್ಳಿ",
+        "ಲಭ್ಯವಿರುವ ಉಪಕರಣಗಳಿಗೆ ಹೊಂದಿಕೊಳ್ಳಿ",
+        "ಧ್ವನಿ ಮೂಲಕ ಲಿಫ್ಟಿಂಗ್ ಸೆಟ್‌ಗಳನ್ನು ದಾಖಲಿಸಿ",
+        "ಸಮಯದ ಅಭಾವವಿದ್ದಾಗಲೂ ತರಬೇತಿ ಪಡೆಯಿರಿ",
+        "ಶಕ್ತಿಯ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ",
+        "ಪ್ರತಿ ಜಿಮ್‌ನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಉಳಿಸಿ",
+        "ಯೋಜಿಸಿ. ಬದಲಾಯಿಸಿ. ಮುಂದುವರಿಯಿರಿ.",
+        "ಸ್ನಾಯುಗಳನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ. ವೇಗವನ್ನು ಕಾಯ್ದುಕೊಳ್ಳಿ."
+      ]
+    },
+    "ko": {
+      "name": "Lift Relay: 헬스 운동 기록",
+      "subtitle": "운동 계획과 근력 트래커",
+      "promotionalText": "헬스장이 붐벼도 운동은 멈출 필요가 없습니다. 지금 사용할 수 있는 기구에 맞춰 세션을 조정하세요.",
+      "description": "헬스장이 붐벼도 운동은 계속됩니다.\n\nLift Relay는 계획한 기구를 사용할 수 없을 때 구조화된 운동을 조정합니다. 예정 운동과 사용 가능한 기구를 알려 주면 목표와 움직임 패턴을 고려한 대안을 제안합니다. 세트, 반복 수, 중량을 기록하고 Relay Mode로 남은 세션을 재구성하며 계획한 운동과 실제 수행한 운동을 함께 보관하세요.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "운동 계획,헬스장 기록,근력 운동 기록,운동 변경,웨이트 트레이닝",
+      "screenshotHeadlines": [
+        "붐비는 헬스장을 위한 운동 플래너",
+        "스마트한 운동 변경 기능",
+        "모든 운동을 살려내는 기능",
+        "사용 가능한 기구에 맞춘 조정",
+        "음성으로 리프팅 세트 기록",
+        "시간이 부족할 때도 운동 가능",
+        "근력 향상 과정 추적",
+        "헬스장별 프로필 저장",
+        "계획하고, 변경하고, 계속 운동하세요.",
+        "근육을 키우고, 운동 흐름을 유지하세요."
+      ]
+    },
+    "ms": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Perancang Senaman &…",
+      "promotionalText": "Sesuaikan setiap sesi gim dengan peralatan yang tersedia pada masa itu. Rancang senaman, tukar latihan, catat latihan kekuatan dan kekalkan momentum.",
+      "description": "GIM SESAK. SENAMAN ANDA TIDAK PERLU TERHENTI.\n\nLift Relay menyesuaikan senaman berstruktur apabila peralatan tidak tersedia. Pilih pelan asal dan peralatan yang kosong untuk mendapatkan cadangan pertukaran latihan yang mengekalkan matlamat latihan serta corak pergerakan anda. Catat set, ulangan dan berat beban; susun semula sesi yang terganggu dengan Mod Relay; pendekkan sesi dengan Time Rescue; gunakan fungsi rakaman suara; semak kemajuan kekuatan; serta simpan maklumat peralatan setiap gim. Fungsi utama pencatatan senaman dan pertukaran latihan tempatan boleh digunakan secara luar talian.\n\nLift Relay ialah alat kecergasan, bukan nasihat perubatan. Sesetengah ciri lanjutan memerlukan Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "perancang senaman,penjejak gim,catatan kekuatan,pertukaran latihan,latihan bebanan",
+      "screenshotHeadlines": [
+        "Perancang senaman untuk gim yang sibuk",
+        "Pertukaran latihan pintar",
+        "Selamatkan setiap sesi senaman",
+        "Sesuaikan dengan peralatan yang tersedia",
+        "Catat set angkatan melalui suara",
+        "Berlatih walaupun masa terhad",
+        "Jejak kemajuan kekuatan",
+        "Simpan profil setiap gim",
+        "Rancang. Tukar. Teruskan bergerak.",
+        "Bina otot. Kekalkan momentum."
+      ]
+    },
+    "ml": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "വർക്ക്ഔട്ട് പ്ലാനറും ജിം…",
+      "promotionalText": "ലഭ്യമായ ഉപകരണങ്ങൾക്കനുസരിച്ച് ഓരോ ജിം സെഷനും ക്രമീകരിക്കുക. വർക്ക്ഔട്ടുകൾ ആസൂത്രണം ചെയ്യുക, വ്യായാമങ്ങൾ മാറ്റുക, സ്ട്രെങ്ത് ട്രെയിനിംഗ് രേഖപ്പെടുത്തുക, പരിശീലനത്തിന്റെ…",
+      "description": "ജിമ്മിൽ തിരക്കുണ്ടോ? നിങ്ങളുടെ വർക്ക്ഔട്ട് മുടങ്ങേണ്ടതില്ല.\n\nആവശ്യമായ ഉപകരണങ്ങൾ ലഭ്യമല്ലാത്തപ്പോൾ ചിട്ടയായ വർക്ക്ഔട്ടുകളെ 'ലിഫ്റ്റ് റിലേ' (Lift Relay) അനുയോജ്യമായ രീതിയിൽ മാറ്റിയെടുക്കുന്നു. നിങ്ങളുടെ പരിശീലന ലക്ഷ്യവും ചലന രീതിയും നിലനിർത്തിക്കൊണ്ടുതന്നെ, ലഭ്യമായ ഉപകരണങ്ങൾ ഉപയോഗിച്ച് ചെയ്യാവുന്ന വ്യായാമങ്ങൾ തിരഞ്ഞെടുക്കുക. സെറ്റുകൾ, റെപ്പുകൾ (reps), ഭാരം എന്നിവ രേഖപ്പെടുത്തുക; 'റിലേ മോഡ്' (Relay Mode) ഉപയോഗിച്ച് തടസ്സപ്പെട്ട സെഷൻ പുനഃക്രമീകരിക്കുക; 'ടൈം റെസ്ക്യൂ' (Time Rescue) വഴി സമയം ലാഭിക്കുക; വോയ്‌സ് ലോഗിംഗ് ഉപയോഗിക്കുക; കരുത്ത് വർദ്ധിക്കുന്നത് വിലയിരുത്തുക; ഓരോ ജിമ്മിലെയും ഉപകരണങ്ങളുടെ വിവരങ്ങൾ സേവ് ചെയ്യുക. പ്രധാന വർക്ക്ഔട്ട് ലോഗിംഗും ബദൽ വ്യായാമ നിർദ്ദേശങ്ങളും ഓഫ്‌ലൈനിലും പ്രവർത്തിക്കുന്നു.\n\n'ലിഫ്റ്റ് റിലേ' ഒരു ഫിറ്റ്‌നസ് ടൂളാണ്, വൈദ്യോപദേശമല്ല. ചില വിപുലമായ ഫീച്ചറുകൾക്ക് 'ലിഫ്റ്റ് റിലേ പ്രോ' (Lift Relay Pro) ആവശ്യമാണ്.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "വർക്ക്ഔട്ട് പ്ലാനർ,ജിം ട്രാക്കർ",
+      "screenshotHeadlines": [
+        "തിരക്കുള്ള ജിമ്മുകൾക്കായുള്ള വർക്ക്ഔട്ട് പ്ലാനർ",
+        "സ്മാർട്ട് വ്യായാമ മാറ്റങ്ങൾ",
+        "ഓരോ വർക്ക്ഔട്ടും രക്ഷിച്ചെടുക്കുക",
+        "ലഭ്യമായ ഉപകരണങ്ങൾക്കനുസരിച്ച് ക്രമീകരിക്കുക",
+        "വോയ്‌സ് വഴി ലിഫ്റ്റിംഗ് സെറ്റുകൾ രേഖപ്പെടുത്തുക",
+        "സമയം കുറവാണെങ്കിലും പരിശീലിക്കുക",
+        "കരുത്ത് വർദ്ധിക്കുന്നത് ട്രാക്ക് ചെയ്യുക",
+        "ഓരോ ജിം പ്രൊഫൈലും സേവ് ചെയ്യുക",
+        "ആസൂത്രണം ചെയ്യുക. മാറ്റുക. മുന്നോട്ട് പോവുക.",
+        "പേശികൾ വളർത്തുക. വേഗത നിലനിർത്തുക."
+      ]
+    },
+    "mr": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "वर्कआउट प्लॅनर आणि जिम ट्रॅकर",
+      "promotionalText": "जिममधील उपलब्ध उपकरणांनुसार तुमचे प्रत्येक सत्र (session) जुळवून घ्या. वर्कआउटचे नियोजन करा, व्यायाम प्रकार बदला, स्ट्रेंथ ट्रेनिंगची नोंद ठेवा आणि सातत्य टिकवा.",
+      "description": "जिममध्ये गर्दी आहे? तरीही तुमचा वर्कआउट थांबण्याची गरज नाही.\n\nजेव्हा विशिष्ट उपकरणे उपलब्ध नसतात, तेव्हा 'लिफ्ट रिले' (Lift Relay) तुमचे नियोजित वर्कआउट्स त्या परिस्थितीनुसार बदलून देते. तुमचे मूळ नियोजन आणि सध्या उपलब्ध असलेली उपकरणे निवडून, व्यायामाचे योग्य पर्याय मिळवा; यामुळे तुमचे प्रशिक्षणाचे उद्दिष्ट आणि हालचालींची पद्धत (movement pattern) कायम राहते. सेट्स, रेप्स आणि वजनाची नोंद करा; 'रिले मोड'द्वारे खंडित झालेले सत्र पुन्हा सुरू करा; 'टाइम रेस्क्यू'द्वारे सत्र कमी वेळेत पूर्ण करा; व्हॉइस लॉगिंगचा वापर करा; ताकदीतील प्रगती तपासा आणि प्रत्येक जिममधील उपकरणांची माहिती सेव्ह करा. मुख्य वर्कआउट लॉगिंग आणि स्थानिक पर्याय (substitutions) ऑफलाइन असतानाही काम करतात.\n\n'लिफ्ट रिले' हे एक फिटनेस साधन आहे, वैद्यकीय सल्ला नाही. काही प्रगत वैशिष्ट्यांसाठी 'लिफ्ट रिले प्रो' (Lift Relay Pro) आवश्यक आहे.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "वर्कआउट प्लॅनर,जिम ट्रॅकर,फिटनेस कोच",
+      "screenshotHeadlines": [
+        "गर्दीच्या जिमसाठी वर्कआउट प्लॅनर",
+        "स्मार्ट व्यायाम पर्याय",
+        "प्रत्येक वर्कआउट वाचवा (पूर्ण करा)",
+        "उपलब्ध उपकरणांनुसार जुळवून घ्या",
+        "व्हॉइसद्वारे लिफ्टिंग सेट्सची नोंद करा",
+        "वेळ कमी असतानाही व्यायाम करा",
+        "ताकदीतील प्रगतीचा मागोवा घ्या",
+        "प्रत्येक जिमची प्रोफाइल सेव्ह करा",
+        "नियोजन करा. पर्याय निवडा. सातत्य ठेवा.",
+        "स्नायूंची वाढ करा. सातत्य टिकवा."
+      ]
+    },
+    "no": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Treningsplanlegger og…",
+      "promotionalText": "Tilpass hver treningsøkt til utstyret som er tilgjengelig der og da. Planlegg økter, bytt ut øvelser, loggfør styrketrening og hold fremdriften oppe.",
+      "description": "FULLT PÅ TRENINGSSENTERET? DU TRENGER IKKE Å STOPPE OPP.\n\nLift Relay tilpasser strukturerte treningsøkter når utstyret du trenger er opptatt. Velg øvelsene du hadde planlagt, og se hvilke alternativer som er ledige – appen foreslår bytter som ivaretar treningsmålet og bevegelsesmønsteret ditt. Loggfør sett, repetisjoner og vekt, juster økten underveis med «Relay Mode», forkort den med «Time Rescue», bruk stemmestyrt logging, følg med på styrkeutviklingen og lagre utstyrsoppsettet for ulike treningssentre. Grunnleggende logging og forslag til alternative øvelser fungerer også uten internettilgang.\n\nLift Relay er et treningsverktøy, ikke medisinsk rådgivning. Enkelte avanserte funksjoner krever Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "treningsplanlegger,treningslogg,styrkelogg,øvelsesbytter,vekttrening,trener",
+      "screenshotHeadlines": [
+        "Treningsplanlegger for travle treningssentre",
+        "Smarte øvelsesbytter",
+        "Redd treningsøkten",
+        "Tilpass til tilgjengelig utstyr",
+        "Loggfør løft med stemmen",
+        "Tren når tiden er knapp",
+        "Følg styrkeutviklingen",
+        "Lagre profiler for ulike treningssentre",
+        "Planlegg. Bytt. Hold deg i gang.",
+        "Bygg muskler. Hold fremdriften oppe."
+      ]
+    },
+    "or": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "ୱାର୍କଆଉଟ୍ ଯୋଜନାକାରୀ ଏବଂ…",
+      "promotionalText": "ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ଥିବା ଯନ୍ତ୍ରପାତି ଅନୁଯାୟୀ ପ୍ରତ୍ୟେକ ଜିମ୍ ଅଧିବେଶନକୁ ସଜାଡ଼ି ନିଅନ୍ତୁ। ୱାର୍କଆଉଟ୍ ଯୋଜନା କରନ୍ତୁ, ବ୍ୟାୟାମ ବଦଳାନ୍ତୁ, ଶକ୍ତି ବୃଦ୍ଧି ପ୍ରଶିକ୍ଷଣ (strength training)…",
+      "description": "ଜିମ୍‌ରେ ଭିଡ଼ ଥିଲେ ମଧ୍ୟ ଆପଣଙ୍କ ୱାର୍କଆଉଟ୍ ବନ୍ଦ ହେବାର ଆବଶ୍ୟକତା ନାହିଁ।\n\nଯେତେବେଳେ ଆବଶ୍ୟକୀୟ ଯନ୍ତ୍ରପାତି ଉପଲବ୍ଧ ନଥାଏ, 'Lift Relay' ସେତେବେଳେ ସୁବ୍ୟବସ୍ଥିତ ୱାର୍କଆଉଟ୍‌କୁ ସେହି ଅନୁସାରେ ପରିବର୍ତ୍ତନ କରିଥାଏ। ଆପଣଙ୍କ ଯୋଜନା ଏବଂ ଉପଲବ୍ଧ ଥିବା ଯନ୍ତ୍ରପାତି ଆଧାରରେ ବିକଳ୍ପ ବ୍ୟାୟାମ ବାଛନ୍ତୁ, ଯାହା ଆପଣଙ୍କ ପ୍ରଶିକ୍ଷଣ ଲକ୍ଷ୍ୟ ଏବଂ ଗତିବିଧିର ଧାରାକୁ ବଜାୟ ରଖିବ। ସେଟ୍, ରେପ୍ (reps) ଏବଂ ଓଜନ ରେକର୍ଡ କରନ୍ତୁ; 'Relay Mode' ସହିତ ବାଧାପ୍ରାପ୍ତ ଅଧିବେଶନକୁ ପୁନର୍ଗଠନ କରନ୍ତୁ; 'Time Rescue' ସହିତ ଏହାକୁ ସଂକ୍ଷିପ୍ତ କରନ୍ତୁ; ଭଏସ୍ ଲଗିଂ (voice logging) ବ୍ୟବହାର କରନ୍ତୁ; ଶକ୍ତି ବୃଦ୍ଧିର ଅଗ୍ରଗତି ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ପ୍ରତ୍ୟେକ ଜିମ୍‌ର ଯନ୍ତ୍ରପାତିର ତଥ୍ୟ ସେଭ୍ (save) କରି ରଖନ୍ତୁ। ମୁଖ୍ୟ ୱାର୍କଆଉଟ୍ ଲଗିଂ ଏବଂ ସ୍ଥାନୀୟ ବିକଳ୍ପ ବ୍ୟାୟାମ ସୁବିଧା ଅଫଲାଇନ୍‌ରେ ମଧ୍ୟ କାମ କରେ।\n\n'Lift Relay' ଏକ ଫିଟନେସ୍ ଟୁଲ୍ ଅଟେ, କୌଣସି ଡାକ୍ତରୀ ପରାମର୍ଶ ନୁହେଁ। କିଛି ଉନ୍ନତ ଫିଚର୍ ବା ସୁବିଧା ପାଇଁ 'Lift Relay Pro' ଆବଶ୍ୟକ।\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ୱାର୍କଆଉଟ୍ ଯୋଜନାକାରୀ,ଜିମ୍ ଟ୍ରାକର୍",
+      "screenshotHeadlines": [
+        "ବ୍ୟସ୍ତବହୁଳ ଜିମ୍ ପାଇଁ ବ୍ୟାୟାମ ଯୋଜନାକାରୀ",
+        "ସ୍ମାର୍ଟ ବ୍ୟାୟାମ ପରିବର୍ତ୍ତନ",
+        "ପ୍ରତ୍ୟେକ ବ୍ୟାୟାମ ଅଧିବେଶନକୁ ସଫଳ କରନ୍ତୁ",
+        "ଉପଲବ୍ଧ ଉପକରଣ ଅନୁଯାୟୀ ନିଜକୁ ଖାପ ଖୁଆନ୍ତୁ",
+        "ଭଏସ୍ (ସ୍ୱର) ମାଧ୍ୟମରେ ଲିଫ୍ଟିଂ ସେଟ୍‌ଗୁଡ଼ିକୁ ରେକର୍ଡ କରନ୍ତୁ",
+        "ସମୟର ଅଭାବ ଥିଲେ ମଧ୍ୟ ବ୍ୟାୟାମ ଜାରି ରଖନ୍ତୁ",
+        "ଶକ୍ତି ବୃଦ୍ଧିର ଅଗ୍ରଗତି ଉପରେ ନଜର ରଖନ୍ତୁ",
+        "ପ୍ରତ୍ୟେକ ଜିମ୍ ପ୍ରୋଫାଇଲ୍ ସେଭ୍ (ସଂରକ୍ଷଣ) କରନ୍ତୁ",
+        "ଯୋଜନା କରନ୍ତୁ। ପରିବର୍ତ୍ତନ କରନ୍ତୁ। ଆଗକୁ ବଢ଼ନ୍ତୁ।",
+        "ମାଂସପେଶୀ ଗଠନ କରନ୍ତୁ। ଗତିଶୀଳତା ବଜାୟ ରଖନ୍ତୁ।"
+      ]
     },
     "pl": {
       "name": "Lift Relay: Trening na siłowni",
       "subtitle": "Plan i dziennik treningowy",
       "promotionalText": "Twój trening nie powinien zależeć od pustej siłowni. Dopasuj sesję do dostępnego sprzętu.",
-      "description": "SIŁOWNIA JEST PEŁNA. TWÓJ TRENING TRWA DALEJ.\n\nLift Relay dostosowuje ułożone treningi, gdy sprzęt jest zajęty. Podaj planowane ćwiczenie i dostępny sprzęt, aby otrzymać jasne zamienniki uwzględniające cel i wzorzec ruchu. Zapisuj serie, powtórzenia i ciężar, przebuduj resztę sesji w Relay Mode i zachowaj w historii ćwiczenie planowane oraz wykonane.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "description": "SIŁOWNIA JEST PEŁNA. TWÓJ TRENING TRWA DALEJ.\n\nLift Relay dostosowuje ułożone treningi, gdy sprzęt jest zajęty. Podaj planowane ćwiczenie i dostępny sprzęt, aby otrzymać jasne zamienniki uwzględniające cel i wzorzec ruchu. Zapisuj serie, powtórzenia i ciężar, przebuduj resztę sesji w Relay Mode i zachowaj w historii ćwiczenie planowane oraz wykonane.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planer treningów,monitor siłowni,dziennik treningu siłowego,zamienniki ćwiczeń,trening siłowy",
+      "screenshotHeadlines": [
+        "Planer treningów na zatłoczone siłownie",
+        "Inteligentne zamienniki ćwiczeń",
+        "Uratuj każdy trening",
+        "Dostosuj się do dostępnego sprzętu",
+        "Rejestruj serie głosowo",
+        "Trenuj, gdy masz mało czasu",
+        "Śledź postępy siłowe",
+        "Zapisuj profile siłowni",
+        "Planuj. Zmieniaj. Działaj dalej.",
+        "Buduj mięśnie. Utrzymuj tempo."
+      ]
+    },
+    "pt-BR": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Planejador de Treinos e…",
+      "promotionalText": "Adapte cada sessão de treino aos equipamentos disponíveis no momento. Planeje treinos, substitua exercícios, registre o treino de força e mantenha o ritmo.",
+      "description": "A ACADEMIA ESTÁ LOTADA? SEU TREINO NÃO PRECISA PARAR.\n\nO Lift Relay adapta treinos estruturados quando os equipamentos não estão disponíveis. Escolha o que você planejou e o que está livre para obter sugestões claras de substituição de exercícios que preservam seu objetivo de treino e o padrão de movimento. Registre séries, repetições e carga, reestruture uma sessão interrompida com o Modo Relay, encurte o treino com o Time Rescue, use o registro por voz, acompanhe a evolução da força e salve os equipamentos de cada academia. As funções principais de registro de treino e substituições locais funcionam offline.\n\nO Lift Relay é uma ferramenta de fitness, não um aconselhamento médico. Alguns recursos avançados exigem o Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planejador de treinos,rastreador de academia,registro de força,substituição de exercícios",
+      "screenshotHeadlines": [
+        "Planejador de treinos para academias lotadas",
+        "Substituição inteligente de exercícios",
+        "Salve qualquer treino",
+        "Adapte-se aos equipamentos disponíveis",
+        "Registre séries de levantamento por voz",
+        "Treine mesmo com pouco tempo",
+        "Acompanhe a evolução da força",
+        "Salve o perfil de cada academia",
+        "Planeje. Substitua. Continue treinando.",
+        "Ganhe massa muscular. Mantenha o ritmo."
+      ]
+    },
+    "pt-PT": {
+      "name": "Lift Relay: Treino de Ginásio",
+      "subtitle": "Plano e registo de treino",
+      "promotionalText": "O seu treino não deve depender de um ginásio vazio. Adapte a sessão ao equipamento disponível.",
+      "description": "O GINÁSIO ESTÁ CHEIO. O SEU TREINO NÃO TEM DE PARAR.\n\nO Lift Relay adapta treinos estruturados quando o equipamento está ocupado. Indique o exercício planeado e o material disponível para receber alternativas claras que respeitam o objetivo e o padrão de movimento. Registe séries, repetições e cargas, reorganize a sessão com Relay Mode e guarde o exercício planeado e o realizado.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planejador de treinos,rastreador de academia,registro de força,substituição de exercícios",
+      "screenshotHeadlines": [
+        "Planejador de treinos para academias lotadas",
+        "Substituição inteligente de exercícios",
+        "Salve qualquer treino",
+        "Adapte-se aos equipamentos disponíveis",
+        "Registre séries de levantamento por voz",
+        "Treine mesmo com pouco tempo",
+        "Acompanhe a evolução da força",
+        "Salve o perfil de cada academia",
+        "Planeje. Substitua. Continue treinando.",
+        "Ganhe massa muscular. Mantenha o ritmo."
+      ]
+    },
+    "pa": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "ਵਰਕਆਊਟ ਪਲੈਨਰ ​​ਅਤੇ ਜਿਮ ਟਰੈਕਰ",
+      "promotionalText": "ਜਿਮ ਵਿੱਚ ਮੌਜੂਦ ਸਾਜ਼ੋ-ਸਾਮਾਨ ਦੇ ਅਨੁਸਾਰ ਹਰ ਸੈਸ਼ਨ ਨੂੰ ਢਾਲੋ। ਵਰਕਆਊਟ ਦੀ ਯੋਜਨਾ ਬਣਾਓ, ਕਸਰਤਾਂ ਬਦਲੋ, ਤਾਕਤ ਵਧਾਉਣ ਵਾਲੀ ਸਿਖਲਾਈ (strength training) ਦਾ ਰਿਕਾਰਡ ਰੱਖੋ ਅਤੇ ਆਪਣੀ ਗਤੀ ਬਣਾਈ…",
+      "description": "ਜਿਮ ਭੀੜ-ਭੜੱਕੇ ਵਾਲਾ ਹੈ? ਤੁਹਾਡਾ ਵਰਕਆਊਟ ਨਹੀਂ ਰੁਕਣਾ ਚਾਹੀਦਾ।\n\nਜਦੋਂ ਲੋੜੀਂਦਾ ਸਾਜ਼ੋ-ਸਾਮਾਨ ਉਪਲਬਧ ਨਹੀਂ ਹੁੰਦਾ, ਤਾਂ 'ਲਿਫਟ ਰਿਲੇਅ' (Lift Relay) ਤੁਹਾਡੇ ਯੋਜਨਾਬੱਧ ਵਰਕਆਊਟ ਨੂੰ ਉਸ ਅਨੁਸਾਰ ਢਾਲ ਲੈਂਦਾ ਹੈ। ਆਪਣੀ ਯੋਜਨਾ ਅਤੇ ਉਪਲਬਧ ਸਾਜ਼ੋ-ਸਾਮਾਨ ਦੇ ਆਧਾਰ 'ਤੇ ਕਸਰਤਾਂ ਨੂੰ ਬਦਲੋ, ਤਾਂ ਜੋ ਤੁਹਾਡਾ ਸਿਖਲਾਈ ਟੀਚਾ ਅਤੇ ਕਸਰਤ ਦਾ ਤਰੀਕਾ ਬਰਕਰਾਰ ਰਹੇ। ਸੈੱਟ, ਰੈਪ (reps) ਅਤੇ ਵਜ਼ਨ ਦਰਜ ਕਰੋ; 'ਰਿਲੇਅ ਮੋਡ' ਨਾਲ ਰੁਕੇ ਹੋਏ ਸੈਸ਼ਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ; 'ਟਾਈਮ ਰੈਸਕਿਊ' (Time Rescue) ਨਾਲ ਸਮਾਂ ਬਚਾਓ; ਵੌਇਸ ਲੌਗਿੰਗ ਦੀ ਵਰਤੋਂ ਕਰੋ; ਤਾਕਤ ਵਿੱਚ ਹੋਏ ਸੁਧਾਰ ਦੀ ਸਮੀਖਿਆ ਕਰੋ ਅਤੇ ਹਰੇਕ ਜਿਮ ਦੇ ਸਾਜ਼ੋ-ਸਾਮਾਨ ਦੀ ਜਾਣਕਾਰੀ ਸੁਰੱਖਿਅਤ ਕਰੋ। ਮੁੱਖ ਵਰਕਆਊਟ ਲੌਗਿੰਗ ਅਤੇ ਬਦਲਵੀਆਂ ਕਸਰਤਾਂ ਦੀ ਚੋਣ ਔਫਲਾਈਨ ਵੀ ਕੰਮ ਕਰਦੀ ਹੈ।\n\n'ਲਿਫਟ ਰਿਲੇਅ' ਇੱਕ ਫਿਟਨੈਸ ਟੂਲ ਹੈ, ਨਾ ਕਿ ਡਾਕਟਰੀ ਸਲਾਹ। ਕੁਝ ਉੱਨਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਲਈ 'ਲਿਫਟ ਰਿਲੇਅ ਪ੍ਰੋ' (Lift Relay Pro) ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ਵਰਕਆਊਟ ਪਲੈਨਰ,ਜਿਮ ਟਰੈਕਰ,ਤਾਕਤ ਦਾ ਰਿਕਾਰਡ",
+      "screenshotHeadlines": [
+        "ਭੀੜ-ਭੜੱਕੇ ਵਾਲੇ ਜਿਮ ਲਈ ਵਰਕਆਊਟ ਪਲੈਨਰ",
+        "ਸਮਾਰਟ ਕਸਰਤ ਬਦਲਾਅ",
+        "ਹਰ ਵਰਕਆਊਟ ਨੂੰ ਬਚਾਓ",
+        "ਉਪਲਬਧ ਸਾਜ਼ੋ-ਸਾਮਾਨ ਅਨੁਸਾਰ ਢਲੋ",
+        "ਆਵਾਜ਼ ਰਾਹੀਂ ਲਿਫਟਿੰਗ ਸੈੱਟ ਦਰਜ ਕਰੋ",
+        "ਘੱਟ ਸਮੇਂ ਵਿੱਚ ਵੀ ਸਿਖਲਾਈ ਕਰੋ",
+        "ਤਾਕਤ ਵਿੱਚ ਸੁਧਾਰ ਨੂੰ ਟਰੈਕ ਕਰੋ",
+        "ਹਰੇਕ ਜਿਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ",
+        "ਯੋਜਨਾ ਬਣਾਓ। ਬਦਲੋ। ਅੱਗੇ ਵਧਦੇ ਰਹੋ।",
+        "ਮਾਸਪੇਸ਼ੀਆਂ ਬਣਾਓ। ਗਤੀ ਬਣਾਈ ਰੱਖੋ।"
+      ]
+    },
+    "ro": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Planificator de…",
+      "promotionalText": "Adaptează fiecare sesiune de sală la echipamentul disponibil în acel moment. Planifică antrenamentele, schimbă exercițiile, înregistrează antrenamentele de forță și…",
+      "description": "SALA ESTE AGLOMERATĂ? ANTRENAMENTUL TĂU NU TREBUIE SĂ SE OPREASCĂ.\n\nLift Relay adaptează antrenamentele structurate atunci când echipamentul nu este disponibil. Alege ce ai planificat și ce este liber pentru a primi sugestii clare de înlocuire a exercițiilor, păstrând în același timp obiectivul antrenamentului și tiparul de mișcare. Înregistrează seriile, repetările și greutățile, reconfigurează o sesiune întreruptă cu modul Relay, scurteaz-o cu Time Rescue, folosește înregistrarea vocală, urmărește progresul forței și salvează echipamentul specific fiecărei săli. Funcțiile de bază pentru înregistrarea antrenamentelor și înlocuirea exercițiilor funcționează offline.\n\nLift Relay este un instrument de fitness, nu oferă sfaturi medicale. Unele funcții avansate necesită Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificator antrenament,monitorizare sală,jurnal forță,înlocuire exerciții,antrenor fitness",
+      "screenshotHeadlines": [
+        "Planificator de antrenamente pentru săli aglomerate",
+        "Înlocuire inteligentă a exercițiilor",
+        "Salvează fiecare antrenament",
+        "Adaptează-te la echipamentul disponibil",
+        "Înregistrează seriile vocal",
+        "Antrenează-te când timpul este limitat",
+        "Urmărește progresul forței",
+        "Salvează profilul fiecărei săli",
+        "Planifică. Schimbă. Continuă.",
+        "Construiește masă musculară. Menține ritmul."
+      ]
+    },
+    "ru": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Планировщик тренировок и…",
+      "promotionalText": "Адаптируйте каждую тренировку под доступное в данный момент оборудование. Планируйте занятия, заменяйте упражнения, ведите учет силовых тренировок и не сбавляйте темп.",
+      "description": "ЗАЛ ПЕРЕПОЛНЕН? ВАША ТРЕНИРОВКА НЕ ДОЛЖНА ПРЕРЫВАТЬСЯ.\n\nLift Relay адаптирует план тренировки, если нужный тренажер занят. Выбирайте запланированное упражнение и то, что свободно прямо сейчас: приложение предложит подходящую замену, сохранив цель тренировки и биомеханику движений. Записывайте подходы, повторения и вес, перестраивайте занятие на ходу с помощью режима Relay, сокращайте время тренировки функцией Time Rescue, используйте голосовой ввод, отслеживайте прогресс в силе и сохраняйте конфигурацию оборудования для разных залов. Основные функции ведения дневника тренировок и подбора замен работают офлайн.\n\nLift Relay — это фитнес-инструмент, а не медицинская рекомендация. Для доступа к некоторым расширенным функциям требуется подписка Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "планировщик тренировок,трекер занятий в зале",
+      "screenshotHeadlines": [
+        "Планировщик тренировок для переполненных залов",
+        "Умная замена упражнений",
+        "Спасите любую тренировку",
+        "Адаптация под доступное оборудование",
+        "Голосовой ввод данных о подходах",
+        "Тренируйтесь, даже когда мало времени",
+        "Отслеживание силового прогресса",
+        "Сохранение профилей разных залов",
+        "Планируйте. Заменяйте. Продолжайте.",
+        "Набирайте мышцы. Не сбавляйте темп."
+      ]
+    },
+    "sk": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Plánovač tréningov a…",
+      "promotionalText": "Prispôsobte každý tréning aktuálne dostupnému vybaveniu. Plánujte tréningy, meňte cviky, zaznamenávajte silový tréning a udržte si tempo.",
+      "description": "POSILŇOVŇA JE PLNÁ? VÁŠ TRÉNING NEMUSÍ SKONČIŤ.\n\nLift Relay prispôsobí štruktúrované tréningy, keď práve nie je k dispozícii potrebné vybavenie. Vyberte si plánovaný cvik a pozrite si dostupné alternatívy, ktoré zachovajú váš tréningový cieľ aj pohybový vzorec. Zaznamenávajte série, opakovania a záťaž, prepracujte prerušený tréning pomocou režimu Relay, skráťte ho funkciou Time Rescue, využívajte hlasový záznam, sledujte pokrok v sile a ukladajte si vybavenie jednotlivých posilňovní. Základné funkcie záznamu tréningu a návrhy náhradných cvikov fungujú aj offline.\n\nLift Relay je fitness nástroj, nie zdravotnícka pomôcka či lekárske poradenstvo. Niektoré pokročilé funkcie vyžadujú verziu Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "plánovač tréningov,sledovanie tréningu,záznam silového tréningu,výmena cvikov",
+      "screenshotHeadlines": [
+        "Plánovač tréningov pre rušné posilňovne",
+        "Inteligentná výmena cvikov",
+        "Zachráňte každý tréning",
+        "Prispôsobte sa dostupnému vybaveniu",
+        "Zaznamenávajte série hlasom",
+        "Trénujte, aj keď máte málo času",
+        "Sledujte pokrok v sile",
+        "Uložte si profil každej posilňovne",
+        "Plánujte. Meňte. Pokračujte.",
+        "Budujte svaly. Udržte si tempo."
+      ]
+    },
+    "sl": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Načrtovalnik vadbe in…",
+      "promotionalText": "Vsak trening v fitnesu prilagodite trenutno razpoložljivi opremi. Načrtujte vadbo, zamenjajte vaje, beležite trening moči in ohranite zagon.",
+      "description": "FITNES JE ZASEDEN. VAŠA VADBA SE NE SME USTAVITI.\n\nLift Relay prilagodi strukturirane treninge, ko določena oprema ni na voljo. Izberite načrtovano vadbo in razpoložljive naprave ter pridobite predloge za ustrezne zamenjave vaj, ki ohranjajo vaš cilj in vzorec gibanja. Beležite serije, ponovitve in obremenitve, preoblikujte prekinjen trening z načinom Relay, ga skrajšajte s funkcijo Time Rescue, uporabite glasovni vnos, spremljajte napredek pri moči in shranite podatke o opremi posameznih fitnesov. Osnovno beleženje vadbe in lokalne zamenjave vaj delujejo tudi brez povezave.\n\nLift Relay je orodje za fitnes in ne nudi zdravniških nasvetov. Nekatere napredne funkcije zahtevajo različico Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "načrtovalnik vadbe,sledilnik treningov,dnevnik treninga moči,zamenjave vaj,trening z utežmi",
+      "screenshotHeadlines": [
+        "Načrtovalnik vadbe za zasedene fitnese",
+        "Pametne zamenjave vaj",
+        "Rešite vsak trening",
+        "Prilagodite se razpoložljivi opremi",
+        "Glasovno beleženje serij vaj",
+        "Trenirajte, ko imate malo časa",
+        "Spremljajte napredek pri moči",
+        "Shranite profil vsakega fitnesa",
+        "Načrtujte. Zamenjajte. Nadaljujte.",
+        "Gradite mišice. Ohranite zagon."
+      ]
+    },
+    "es-MX": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Planificador de…",
+      "promotionalText": "Adapta cada sesión de gimnasio al equipamiento disponible en el momento. Planifica entrenamientos, cambia ejercicios, registra el entrenamiento de fuerza y ​​mantén el…",
+      "description": "EL GIMNASIO ESTÁ LLENO. TU ENTRENAMIENTO NO TIENE POR QUÉ DETENERSE.\n\nLift Relay adapta entrenamientos estructurados cuando el equipamiento no está disponible. Elige tu plan original y el equipo libre para obtener sugerencias claras de sustitución de ejercicios que preservan tu objetivo de entrenamiento y el patrón de movimiento. Registra series, repeticiones y peso; reconstruye una sesión interrumpida con el modo Relay; acórtala con Time Rescue; usa el registro por voz; revisa tu progreso de fuerza y ​​guarda la configuración de equipamiento de cada gimnasio. Las funciones básicas de registro de entrenamiento y las sustituciones locales funcionan sin conexión a internet.\n\nLift Relay es una herramienta de fitness, no un consejo médico. Algunas funciones avanzadas requieren Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificador de entrenamientos,registro de gimnasio,registro de fuerza,sustitución de ejercicios",
+      "screenshotHeadlines": [
+        "Planificador de entrenamientos para gimnasios concurridos",
+        "Sustitución inteligente de ejercicios",
+        "Salva cualquier entrenamiento",
+        "Adáptate al equipamiento disponible",
+        "Registra series de levantamiento por voz",
+        "Entrena cuando tengas poco tiempo",
+        "Haz un seguimiento de tu progreso de fuerza",
+        "Guarda el perfil de cada gimnasio",
+        "Planifica. Cambia. Sigue en movimiento.",
+        "Construye músculo. Mantén el ritmo."
+      ]
+    },
+    "es-ES": {
+      "name": "Lift Relay: Entreno de gym",
+      "subtitle": "Planificador y registro gym",
+      "promotionalText": "Tu entrenamiento no debería depender de un gimnasio vacío. Adapta la sesión al equipo que está libre.",
+      "description": "EL GIMNASIO ESTÁ LLENO. TU ENTRENAMIENTO NO TIENE QUE PARAR.\n\nLift Relay adapta entrenamientos estructurados cuando el equipo no está disponible. Indica qué habías planeado y qué material está libre para recibir alternativas claras que respetan el objetivo y el patrón de movimiento. Registra series, repeticiones y cargas, reorganiza la sesión con Relay Mode y conserva el ejercicio planeado junto al realizado. El registro básico funciona sin conexión.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "planificador de entrenamientos,registro de gimnasio,registro de fuerza,sustitución de ejercicios",
+      "screenshotHeadlines": [
+        "Planificador de entrenamientos para gimnasios concurridos",
+        "Sustitución inteligente de ejercicios",
+        "Salva cualquier entrenamiento",
+        "Adáptate al equipamiento disponible",
+        "Registra series de levantamiento por voz",
+        "Entrena cuando tengas poco tiempo",
+        "Haz un seguimiento de tu progreso de fuerza",
+        "Guarda el perfil de cada gimnasio",
+        "Planifica. Cambia. Sigue en movimiento.",
+        "Construye músculo. Mantén el ritmo."
+      ]
+    },
+    "sv": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Träningsplanerare och gymlogg",
+      "promotionalText": "Anpassa varje pass efter den utrustning som finns tillgänglig just nu. Planera träningen, byt ut övningar, logga styrketräningen och håll igång.",
+      "description": "FULLT PÅ GYMME? DU BEHÖVER INTE AVBRYTA TRÄNINGEN.\n\nLift Relay anpassar strukturerade träningspass när utrustning inte är ledig. Välj ditt planerade pass och se vad som är ledigt för att få förslag på övningsbyten som bevarar träningsmålet och rörelsemönstret. Logga set, repetitioner och vikt, rädda ett avbrutet pass med Relay-läget, korta ner det med Time Rescue, använd röstloggning, följ dina framsteg och spara utrustningen för varje gym. Grundläggande loggning och förslag på övningsbyten fungerar även offline.\nLift Relay är ett träningsverktyg, inte medicinsk rådgivning. Vissa avancerade funktioner kräver Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "träningsplanerare,gymlogg,styrkelogg,övningsbyten,styrketräning,träningscoach",
+      "screenshotHeadlines": [
+        "Träningsplanerare för välbesökta gym",
+        "Smarta övningsbyten",
+        "Rädda varje träningspass",
+        "Anpassa efter tillgänglig utrustning",
+        "Logga set med rösten",
+        "Träna när tiden är knapp",
+        "Följ styrkeframsteg",
+        "Spara gymprofiler",
+        "Planera. Byt. Håll igång.",
+        "Bygg muskler. Håll tempot uppe."
+      ]
+    },
+    "ta": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "உடற்பயிற்சித் திட்டமிடுபவர்…",
+      "promotionalText": "தற்போது கிடைக்கும் உபகரணங்களுக்கு ஏற்ப ஒவ்வொரு ஜிம் அமர்வையும் மாற்றியமைத்துக் கொள்ளுங்கள். பயிற்சிகளைத் திட்டமிடுங்கள், பயிற்சிகளை மாற்றிக்கொள்ளுங்கள், வலிமைப்…",
+      "description": "ஜிம் கூட்டமாக உள்ளதா? உங்கள் உடற்பயிற்சி நிற்க வேண்டிய அவசியமில்லை.\n\nதேவையான உபகரணங்கள் கிடைக்காதபோது, ​​'Lift Relay' உங்கள் திட்டமிடப்பட்ட பயிற்சிகளை அதற்கு ஏற்றவாறு மாற்றியமைக்கிறது. உங்கள் பயிற்சி இலக்கு மற்றும் அசைவு முறையைச் சிதைக்காத வகையில், மாற்றுப் பயிற்சிகளைத் தேர்ந்தெடுக்கலாம். செட்கள் (sets), ரெப்ஸ் (reps) மற்றும் எடையைப் பதிவு செய்யுங்கள்; 'Relay Mode' மூலம் தடைபட்ட அமர்வை மீண்டும் தொடருங்கள்; 'Time Rescue' மூலம் நேரத்தைச் சேமியுங்கள்; குரல் வழிப் பதிவைப் பயன்படுத்துங்கள்; வலிமை முன்னேற்றத்தைச் சரிபாருங்கள் மற்றும் ஒவ்வொரு ஜிம்மின் உபகரண விவரங்களையும் சேமித்து வையுங்கள். முக்கியப் பயிற்சிப் பதிவுகள் மற்றும் உள்ளூர் மாற்றுப் பயிற்சிகள் இணையம் இல்லாமலும் (offline) செயல்படும்.\n\n'Lift Relay' ஒரு உடற்பயிற்சி கருவி மட்டுமே; இது மருத்துவ ஆலோசனை அல்ல. சில மேம்பட்ட அம்சங்களுக்கு 'Lift Relay Pro' தேவைப்படும்.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "உடற்பயிற்சித் திட்டமிடுபவர்",
+      "screenshotHeadlines": [
+        "கூட்டமான ஜிம்களுக்கான உடற்பயிற்சித் திட்டமிடுபவர்",
+        "புத்திசாலித்தனமான மாற்றுப் பயிற்சிகள்",
+        "ஒவ்வொரு உடற்பயிற்சியையும் காப்பாற்றுங்கள்",
+        "கிடைக்கக்கூடிய உபகரணங்களுக்கு ஏற்ப மாற்றியமைத்தல்",
+        "குரல் மூலம் எடை தூக்கும் செட்களைப் பதிவு செய்தல்",
+        "குறைந்த நேரத்தில் பயிற்சி செய்தல்",
+        "வலிமை முன்னேற்றத்தைக் கண்காணித்தல்",
+        "ஒவ்வொரு ஜிம் விவரக்குறிப்பையும் சேமித்தல்",
+        "திட்டமிடுங்கள். மாற்றுங்கள். தொடர்ந்து செயல்படுங்கள்.",
+        "தசையை வளருங்கள். வேகத்தைத் தக்கவையுங்கள்."
+      ]
+    },
+    "te": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "వర్కౌట్ ప్లానర్ & జిమ్ ట్రాకర్",
+      "promotionalText": "ప్రస్తుతం అందుబాటులో ఉన్న పరికరాలకు అనుగుణంగా ప్రతి జిమ్ సెషన్‌ను మార్చుకోండి. వర్కౌట్‌లను ప్లాన్ చేయండి, వ్యాయామాలను మార్చుకోండి, స్ట్రెంగ్త్ ట్రైనింగ్‌ను లాగ్ చేయండి…",
+      "description": "జిమ్ రద్దీగా ఉంది. మీ వర్కౌట్ ఆగాల్సిన అవసరం లేదు.\n\nపరికరాలు అందుబాటులో లేనప్పుడు లిఫ్ట్ రిలే క్రమబద్ధమైన వర్కౌట్‌లను సర్దుబాటు చేస్తుంది. మీ శిక్షణ లక్ష్యం మరియు కదలిక సరళిని కాపాడుతూ, స్పష్టమైన వ్యాయామ మార్పిడులను పొందడానికి, మీరు ప్లాన్ చేసుకున్న వాటిని మరియు ఖాళీగా ఉన్న వాటిని ఎంచుకోండి. సెట్‌లు, రెప్‌లు మరియు బరువును లాగ్ చేయండి, రిలే మోడ్‌తో అంతరాయం కలిగిన సెషన్‌ను పునర్నిర్మించండి, టైమ్ రెస్క్యూతో దానిని కుదించండి, వాయిస్ లాగింగ్‌ను ఉపయోగించండి, బలం పురోగతిని సమీక్షించండి మరియు ప్రతి జిమ్ పరికరాన్ని సేవ్ చేయండి. కోర్ వర్కౌట్ లాగింగ్ మరియు స్థానిక ప్రత్యామ్నాయాలు ఆఫ్‌లైన్‌లో పనిచేస్తాయి.\n\nలిఫ్ట్ రిలే ఒక ఫిట్‌నెస్ సాధనం, వైద్య సలహా కాదు. కొన్ని అధునాతన ఫీచర్‌లకు లిఫ్ట్ రిలే ప్రో అవసరం.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "వ్యాయామ ప్రణాళికాకర్త,జిమ్ ట్రాకర్",
+      "screenshotHeadlines": [
+        "రద్దీగా ఉండే జిమ్‌ల కోసం వర్కవుట్ ప్లానర్",
+        "తెలివైన వ్యాయామ మార్పులు",
+        "ప్రతి వర్కవుట్‌ను విజయవంతం చేయండి",
+        "అందుబాటులో ఉన్న పరికరాలకు అనుగుణంగా మారండి",
+        "వాయిస్ ద్వారా లిఫ్టింగ్ సెట్‌లను నమోదు చేయండి",
+        "సమయం తక్కువగా ఉన్నప్పుడు కూడా శిక్షణ పొందండి",
+        "బలంలో పురోగతిని ట్రాక్ చేయండి",
+        "ప్రతి జిమ్ ప్రొఫైల్‌ను సేవ్ చేయండి",
+        "ప్లాన్ చేయండి. మార్చుకోండి. కొనసాగించండి.",
+        "కండరాలను పెంచుకోండి. వేగాన్ని కొనసాగించండి."
+      ]
+    },
+    "th": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "เครื่องมือวางแผนการออกกำลังกา…",
+      "promotionalText": "ปรับเปลี่ยนการออกกำลังกายให้เข้ากับอุปกรณ์ที่มีอยู่จริงในขณะนั้น วางแผนตารางฝึก สลับท่าออกกำลังกาย บันทึกผลการฝึกสร้างกล้ามเนื้อ และรักษาความต่อเนื่องในการออกกำลังกาย",
+      "description": "แม้คนจะแน่นยิม แต่การออกกำลังกายของคุณก็ไม่จำเป็นต้องหยุดชะงัก\n\nLift Relay ช่วยปรับเปลี่ยนแผนการออกกำลังกายเมื่ออุปกรณ์ที่คุณต้องการไม่ว่าง เพียงเลือกแผนที่วางไว้และอุปกรณ์ที่ว่างอยู่ แอปจะแนะนำท่าออกกำลังกายทดแทนที่เหมาะสม ซึ่งยังคงรักษาเป้าหมายและรูปแบบการเคลื่อนไหวเดิมของคุณไว้ได้ บันทึกจำนวนเซ็ต ครั้ง และน้ำหนักที่ยก ปรับแผนการฝึกที่สะดุดด้วยโหมด Relay หรือลดเวลาฝึกด้วยฟีเจอร์ Time Rescue พร้อมบันทึกข้อมูลด้วยเสียง ดูพัฒนาการความแข็งแกร่ง และบันทึกข้อมูลอุปกรณ์ของแต่ละยิมที่คุณไปใช้บริการ ฟังก์ชันหลักในการบันทึกการออกกำลังกายและการสลับท่าสามารถใช้งานได้แม้ไม่มีอินเทอร์เน็ต\n\nLift Relay เป็นเครื่องมือช่วยออกกำลังกาย ไม่ใช่คำแนะนำทางการแพทย์ ฟีเจอร์ขั้นสูงบางอย่างจำเป็นต้องใช้ Lift Relay Pro\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "วางแผนออกกำลังกาย,ติดตามผลในยิม",
+      "screenshotHeadlines": [
+        "วางแผนออกกำลังกายสำหรับยิมที่คนพลุกพล่าน",
+        "สลับท่าออกกำลังกายอย่างชาญฉลาด",
+        "กู้คืนแผนการออกกำลังกายของคุณ",
+        "ปรับเปลี่ยนตามอุปกรณ์ที่มีอยู่",
+        "บันทึกเซ็ตการยกน้ำหนักด้วยเสียง",
+        "ฝึกซ้อมได้แม้มีเวลาจำกัด",
+        "ติดตามพัฒนาการความแข็งแกร่ง",
+        "บันทึกข้อมูลยิมแต่ละแห่ง",
+        "วางแผน สลับท่า และเดินหน้าฝึกต่อ",
+        "สร้างกล้ามเนื้อ รักษาความต่อเนื่อง"
+      ]
     },
     "tr": {
       "name": "Lift Relay: Spor Salonu",
       "subtitle": "Antrenman planı ve takip",
       "promotionalText": "Antrenmanın boş bir spor salonuna bağlı olmamalı. Seansı gerçekten müsait ekipmana göre uyarla.",
-      "description": "SPOR SALONU YOĞUN. ANTRENMANIN DURMAK ZORUNDA DEĞİL.\n\nLift Relay, ekipman dolu olduğunda planlı antrenmanını uyarlar. Planlanan hareketi ve müsait ekipmanı belirt; hedefini ve hareket modelini gözeten anlaşılır alternatifler al. Setleri, tekrarları ve ağırlıkları kaydet, Relay Mode ile kalan seansı yeniden kur ve planlanan hareketle yaptığın hareketi birlikte sakla.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      "description": "SPOR SALONU YOĞUN. ANTRENMANIN DURMAK ZORUNDA DEĞİL.\n\nLift Relay, ekipman dolu olduğunda planlı antrenmanını uyarlar. Planlanan hareketi ve müsait ekipmanı belirt; hedefini ve hareket modelini gözeten anlaşılır alternatifler al. Setleri, tekrarları ve ağırlıkları kaydet, Relay Mode ile kalan seansı yeniden kur ve planlanan hareketle yaptığın hareketi birlikte sakla.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "antrenman planlayıcı,spor salonu takipçisi,kuvvet antrenmanı kaydı,egzersiz değişimi",
+      "screenshotHeadlines": [
+        "Yoğun spor salonları için antrenman planlayıcı",
+        "Akıllı egzersiz değişimleri",
+        "Her antrenmanı kurtarın",
+        "Mevcut ekipmana uyum sağlayın",
+        "Ağırlık setlerini sesle kaydedin",
+        "Kısıtlı zamanda antrenman yapın",
+        "Kuvvet gelişimini takip edin",
+        "Her spor salonu profilini kaydedin",
+        "Planla. Değiştir. Harekete devam et.",
+        "Kas yapın. Temponuzu koruyun."
+      ]
+    },
+    "uk": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Планувальник тренувань і…",
+      "promotionalText": "Адаптуйте кожне тренування до наявного обладнання. Плануйте заняття, замінюйте вправи, записуйте результати силових тренувань і підтримуйте темп.",
+      "description": "ЗАЛ ПЕРЕПОВНЕНИЙ? ВАШЕ ТРЕНУВАННЯ НЕ ПОВИННЕ ЗУПИНЯТИСЯ.\n\nLift Relay адаптує структуровані тренування, коли потрібне обладнання зайняте. Обирайте заплановані вправи та доступні тренажери, отримуючи пропозиції щодо заміни, які зберігають мету тренування та патерн руху. Записуйте підходи, повторення й вагу, перебудовуйте перерване заняття за допомогою режиму Relay, скорочуйте його функцією Time Rescue, використовуйте голосове введення даних, відстежуйте прогрес у силі та зберігайте конфігурацію обладнання для кожного залу. Основні функції запису тренувань і локальної заміни вправ працюють офлайн.\n\nLift Relay — це фітнес-інструмент, а не медична порада. Деякі розширені функції доступні в версії Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "планувальник тренувань,трекер занять у залі",
+      "screenshotHeadlines": [
+        "Планувальник тренувань для переповнених залів",
+        "Розумна заміна вправ",
+        "Врятуйте кожне тренування",
+        "Адаптація до наявного обладнання",
+        "Голосовий запис силових підходів",
+        "Тренування в умовах браку часу",
+        "Відстеження прогресу в силі",
+        "Збереження профілю кожного залу",
+        "Плануйте. Замінюйте. Рухайтеся далі.",
+        "Нарощуйте м'язи. Підтримуйте темп."
+      ]
+    },
+    "ur": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "ورک آؤٹ پلانر اور جم ٹریکر",
+      "promotionalText": "جم کے ہر سیشن کو دستیاب آلات کے مطابق ڈھالیں۔ ورک آؤٹ کی منصوبہ بندی کریں، ورزشیں تبدیل کریں، اسٹرینتھ ٹریننگ (طاقت کی مشقوں) کا ریکارڈ رکھیں اور تسلسل برقرار رکھیں۔",
+      "description": "جم میں رش ہے؟ آپ کا ورک آؤٹ نہیں رکنا چاہیے۔\n\nجب مطلوبہ آلات دستیاب نہ ہوں تو 'لفٹ ریلے' (Lift Relay) منظم ورک آؤٹ کو حالات کے مطابق ڈھال لیتا ہے۔ اپنی منصوبہ بندی اور دستیاب آلات کا انتخاب کریں تاکہ ورزش کے ایسے متبادل مل سکیں جو آپ کے تربیتی مقصد اور حرکت کے انداز کو برقرار رکھیں۔ سیٹس، ریپس (reps) اور وزن کا ریکارڈ رکھیں، 'ریلے موڈ' کے ذریعے متاثرہ سیشن کو دوبارہ ترتیب دیں، 'ٹائم ریسکیو' سے اسے مختصر کریں، وائس لاگنگ (آواز کے ذریعے ریکارڈنگ) استعمال کریں، طاقت میں پیش رفت کا جائزہ لیں اور ہر جم کے آلات کی تفصیلات محفوظ کریں۔ بنیادی ورک آؤٹ ریکارڈنگ اور متبادل ورزشوں کی سہولت آف لائن بھی کام کرتی ہے۔\n\n'لفٹ ریلے' ایک فٹنس ٹول ہے، طبی مشورہ نہیں۔ کچھ جدید خصوصیات کے لیے 'لفٹ ریلے پرو' (Lift Relay Pro) درکار ہے۔\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "ورک آؤٹ پلانر,جم ٹریکر,اسٹرینتھ لاگ,ورزش کی تبدیلی",
+      "screenshotHeadlines": [
+        "مصروف جمز کے لیے ورک آؤٹ پلانر",
+        "ورزش کی ذہین تبدیلیاں",
+        "ہر ورک آؤٹ کو بچائیں (مکمل کریں)",
+        "دستیاب آلات کے مطابق ڈھلیں",
+        "آواز کے ذریعے لفٹنگ سیٹس ریکارڈ کریں",
+        "وقت کی کمی کے باوجود ٹریننگ کریں",
+        "طاقت میں پیش رفت کو ٹریک کریں",
+        "ہر جم کی پروفائل محفوظ کریں",
+        "منصوبہ بنائیں، تبدیل کریں، آگے بڑھتے رہیں۔",
+        "پٹھے بنائیں، تسلسل برقرار رکھیں۔"
+      ]
+    },
+    "vi": {
+      "name": "Lift Relay: Gym Workout",
+      "subtitle": "Công cụ Lên kế hoạch & Theo…",
+      "promotionalText": "Điều chỉnh buổi tập theo thiết bị hiện có. Lên kế hoạch, thay đổi bài tập, ghi lại quá trình tập sức mạnh và duy trì nhịp độ tập luyện.",
+      "description": "PHÒNG TẬP ĐÔNG ĐÚC? BUỔI TẬP CỦA BẠN VẪN CÓ THỂ TIẾP TỤC.\n\nLift Relay tự động điều chỉnh các bài tập đã lên kế hoạch khi thiết bị không có sẵn. Chọn bài tập dự kiến ​​và thiết bị đang trống để nhận gợi ý thay thế phù hợp, đảm bảo vẫn đạt mục tiêu và giữ nguyên kiểu vận động. Ghi lại số hiệp, số lần lặp và mức tạ; khôi phục buổi tập bị gián đoạn với Chế độ Relay; rút ngắn thời gian tập với Time Rescue; ghi dữ liệu bằng giọng nói; theo dõi tiến độ sức mạnh và lưu thông tin thiết bị của từng phòng tập. Các tính năng ghi chép bài tập cốt lõi và thay thế bài tập tại chỗ hoạt động ngay cả khi không có mạng.\n\nLift Relay là công cụ hỗ trợ tập luyện, không phải lời khuyên y tế. Một số tính năng nâng cao yêu cầu gói Lift Relay Pro.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "keywords": "lên kế hoạch tập luyện,theo dõi tập luyện,ghi chép tập sức mạnh,tập tạ",
+      "screenshotHeadlines": [
+        "Lên kế hoạch tập luyện cho phòng tập đông đúc",
+        "Thay đổi bài tập thông minh",
+        "Cứu vãn mọi buổi tập",
+        "Thích ứng với thiết bị hiện có",
+        "Ghi lại hiệp tập bằng giọng nói",
+        "Tập luyện khi quỹ thời gian hạn hẹp",
+        "Theo dõi tiến độ sức mạnh",
+        "Lưu hồ sơ từng phòng tập",
+        "Lên kế hoạch. Thay đổi. Tiếp tục tập.",
+        "Xây dựng cơ bắp. Duy trì nhịp độ."
+      ]
     }
   }
 }

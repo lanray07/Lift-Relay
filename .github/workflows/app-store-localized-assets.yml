@@ -1,0 +1,45 @@
+name: Localized App Store Product Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Use plan for read-only validation; apply uploads everything"
+        required: true
+        default: plan
+        type: choice
+        options: [plan, apply]
+      locale:
+        description: "Optional single locale, for example en-GB"
+        required: false
+        type: string
+
+concurrency:
+  group: app-store-localized-assets
+  cancel-in-progress: false
+
+jobs:
+  product-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install image and API dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-core fonts-noto-cjk fonts-noto-extra
+          python -m pip install --disable-pip-version-check Pillow PyJWT cryptography requests
+      - name: Validate and upload localized product pages
+        env:
+          API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          API_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_API_PRIVATE_KEY }}
+          MODE: ${{ inputs.mode }}
+          LOCALE: ${{ inputs.locale }}
+        run: |
+          args=()
+          if [ "$MODE" = "apply" ]; then args+=(--apply); fi
+          if [ -n "$LOCALE" ]; then args+=(--locale "$LOCALE"); fi
+          python Scripts/upload-localized-app-store-assets.py "${args[@]}"

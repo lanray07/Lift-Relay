@@ -6,3 +6,5 @@ DerivedData/
 *.xcuserstate
 __pycache__/
 *.py[cod]
+/.tmp-asc-spec/
+/AppStore/GeneratedAssets/

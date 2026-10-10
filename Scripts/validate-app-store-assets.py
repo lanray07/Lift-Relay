@@ -25,8 +25,8 @@ def check_metadata() -> list[str]:
     data = json.loads(METADATA.read_text(encoding="utf-8"))
     errors: list[str] = []
     localizations = data.get("localizations", {})
-    if len(localizations) != 49:
-        errors.append(f"Expected 49 localizations; found {len(localizations)}")
+    if len(localizations) != 50:
+        errors.append(f"Expected 50 localizations; found {len(localizations)}")
     for locale, item in localizations.items():
         for key, limit in (("name", 30), ("subtitle", 30), ("promotionalText", 170), ("description", 4000)):
             value = item.get(key, "")
@@ -52,8 +52,8 @@ def check_assets() -> list[str]:
         locale_dir = ASSETS / locale
         for device, size in list(EXPECTED_SIZES.items())[:2]:
             paths = sorted((locale_dir / device).glob("*.jpg"))
-            if len(paths) != 10:
-                errors.append(f"{locale}/{device}: expected ten JPEGs; found {len(paths)}")
+            if len(paths) != 5:
+                errors.append(f"{locale}/{device}: expected five JPEGs; found {len(paths)}")
             for path in paths:
                 with Image.open(path) as image:
                     if image.size != size:
