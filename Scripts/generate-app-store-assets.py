@@ -4,12 +4,20 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, features
+
+try:
+    import arabic_reshaper
+    from bidi.algorithm import get_display as bidi_display
+except ImportError:  # Optional when Pillow was built with libraqm support.
+    arabic_reshaper = None
+    bidi_display = None
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,27 +37,53 @@ DEVICE_SIZES = {
 
 def font_candidates(locale: str, bold: bool) -> list[Path]:
     windows = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
-    if locale.startswith(RTL_PREFIXES):
-        names = ["Nirmala.ttc", "arialbd.ttf" if bold else "arial.ttf"]
+    language = locale.split("-")[0]
+    if language == "ar":
+        # Nirmala UI does not contain Arabic glyphs on Windows. It rendered
+        # every localized headline as identical .notdef squares, which were
+        # then accepted by App Store Connect because the bitmap dimensions
+        # were otherwise valid.
+        names = ["arialbd.ttf" if bold else "arial.ttf", "segoeuib.ttf" if bold else "segoeui.ttf"]
+        noto_names = ["NotoSansArabic-Bold.ttf" if bold else "NotoSansArabic-Regular.ttf"]
+    elif language == "he":
+        names = ["arialbd.ttf" if bold else "arial.ttf", "segoeuib.ttf" if bold else "segoeui.ttf"]
+        noto_names = ["NotoSansHebrew-Bold.ttf" if bold else "NotoSansHebrew-Regular.ttf"]
+    elif language == "ur":
+        names = ["arialbd.ttf" if bold else "arial.ttf", "Nirmala.ttc"]
+        noto_names = ["NotoNastaliqUrdu-Bold.ttf" if bold else "NotoNastaliqUrdu-Regular.ttf",
+                      "NotoSansArabic-Bold.ttf" if bold else "NotoSansArabic-Regular.ttf"]
     elif locale.startswith("zh-Hans"):
         names = ["msyhbd.ttc", "msyh.ttc"]
+        noto_names = ["NotoSansCJK-Bold.ttc" if bold else "NotoSansCJK-Regular.ttc"]
     elif locale.startswith("zh-Hant"):
         names = ["msjhbd.ttc", "msjh.ttc"]
+        noto_names = ["NotoSansCJK-Bold.ttc" if bold else "NotoSansCJK-Regular.ttc"]
     elif locale.startswith("ja"):
         names = ["YuGothB.ttc", "YuGothM.ttc"]
+        noto_names = ["NotoSansCJK-Bold.ttc" if bold else "NotoSansCJK-Regular.ttc"]
     elif locale.startswith("ko"):
         names = ["malgunbd.ttf", "malgun.ttf"]
-    elif locale.split("-")[0] in {"bn", "gu", "hi", "kn", "ml", "mr", "or", "pa", "ta", "te"}:
+        noto_names = ["NotoSansCJK-Bold.ttc" if bold else "NotoSansCJK-Regular.ttc"]
+    elif language in {"bn", "gu", "hi", "kn", "ml", "mr", "or", "pa", "ta", "te"}:
         names = ["Nirmala.ttc"]
+        script_names = {
+            "bn": "Bengali", "gu": "Gujarati", "hi": "Devanagari", "kn": "Kannada",
+            "ml": "Malayalam", "mr": "Devanagari", "or": "Oriya", "pa": "Gurmukhi",
+            "ta": "Tamil", "te": "Telugu",
+        }
+        script = script_names[language]
+        noto_names = [f"NotoSans{script}-Bold.ttf" if bold else f"NotoSans{script}-Regular.ttf"]
+    elif language == "th":
+        names = ["leelawdb.ttf" if bold else "leelawad.ttf", "tahomabd.ttf" if bold else "tahoma.ttf"]
+        noto_names = ["NotoSansThai-Bold.ttf" if bold else "NotoSansThai-Regular.ttf"]
     else:
         names = ["arialbd.ttf" if bold else "arial.ttf", "segoeuib.ttf" if bold else "segoeui.ttf"]
+        noto_names = ["NotoSans-Bold.ttf" if bold else "NotoSans-Regular.ttf"]
     candidates = [windows / name for name in names]
     # GitHub Actions installs these in the upload workflow.
     linux_roots = [Path("/usr/share/fonts/opentype/noto"), Path("/usr/share/fonts/truetype/noto")]
-    patterns = ["*Sans*Bold*", "*Sans*Regular*"] if bold else ["*Sans*Regular*", "*Sans*"]
     for root in linux_roots:
-        for pattern in patterns:
-            candidates.extend(sorted(root.glob(pattern)))
+        candidates.extend(root / name for name in noto_names)
     return candidates
 
 
@@ -63,7 +97,48 @@ def load_font(locale: str, size: int, bold: bool = False) -> ImageFont.FreeTypeF
     return ImageFont.truetype("arial.ttf", size=size)
 
 
-def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, width: int) -> list[str]:
+def prepared_text(text: str, locale: str) -> str:
+    """Shape and reorder RTL copy when Pillow cannot delegate to libraqm."""
+    if not locale.startswith(RTL_PREFIXES) or features.check("raqm"):
+        return text
+    if arabic_reshaper is None or bidi_display is None:
+        raise RuntimeError(
+            "RTL rendering requires Pillow with libraqm or the arabic-reshaper and python-bidi packages"
+        )
+    return bidi_display(arabic_reshaper.reshape(text))
+
+
+def text_bbox(draw: ImageDraw.ImageDraw, text: str, locale: str,
+              font: ImageFont.FreeTypeFont) -> tuple[int, int, int, int]:
+    if locale.startswith(RTL_PREFIXES) and features.check("raqm"):
+        return draw.textbbox((0, 0), text, font=font, direction="rtl")
+    return draw.textbbox((0, 0), prepared_text(text, locale), font=font)
+
+
+def draw_localized_text(draw: ImageDraw.ImageDraw, position: tuple[int, int], text: str,
+                        locale: str, font: ImageFont.FreeTypeFont, fill: tuple,
+                        anchor: str) -> None:
+    if locale.startswith(RTL_PREFIXES) and features.check("raqm"):
+        draw.text(position, text, font=font, fill=fill, anchor=anchor, direction="rtl")
+    else:
+        draw.text(position, prepared_text(text, locale), font=font, fill=fill, anchor=anchor)
+
+
+def assert_font_has_localized_glyphs(font: ImageFont.FreeTypeFont, text: str, locale: str) -> None:
+    """Reject a font that maps every localized character to one missing-glyph box."""
+    characters = sorted({character for character in text if ord(character) > 127 and not character.isspace()})
+    if len(characters) < 2:
+        return
+    fingerprints = set()
+    for character in characters:
+        mask = font.getmask(character)
+        fingerprints.add((mask.size, hashlib.sha256(bytes(mask)).digest()))
+    if len(fingerprints) == 1:
+        raise RuntimeError(f"Selected font has no usable localized glyphs for {locale}")
+
+
+def wrap_text(draw: ImageDraw.ImageDraw, text: str, locale: str,
+              font: ImageFont.FreeTypeFont, width: int) -> list[str]:
     words = text.replace("\n", " \n ").split()
     lines: list[str] = []
     current = ""
@@ -74,7 +149,7 @@ def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont
                 current = ""
             continue
         trial = word if not current else f"{current} {word}"
-        if draw.textbbox((0, 0), trial, font=font)[2] <= width:
+        if text_bbox(draw, trial, locale, font)[2] <= width:
             current = trial
         else:
             if current:
@@ -106,19 +181,18 @@ def draw_headline(
     size = base_size
     while size >= max(42, base_size // 2):
         font = load_font(locale, size, bold=True)
-        lines = wrap_text(draw, headline.upper() if locale.startswith("en") else headline, font, max_width)
+        assert_font_has_localized_glyphs(font, headline, locale)
+        lines = wrap_text(
+            draw, headline.upper() if locale.startswith("en") else headline, locale, font, max_width
+        )
         line_height = math.ceil(size * 1.04)
         if len(lines) <= 3 and line_height * len(lines) <= max_height:
             break
         size -= 4
-    direction = "rtl" if locale.startswith(RTL_PREFIXES) else "ltr"
     y = top
     for index, line in enumerate(lines):
         colour = LIME if index == len(lines) - 1 else WHITE
-        try:
-            draw.text((canvas.width // 2, y), line, font=font, fill=colour, anchor="ma", direction=direction)
-        except (KeyError, ValueError):
-            draw.text((canvas.width // 2, y), line, font=font, fill=colour, anchor="ma")
+        draw_localized_text(draw, (canvas.width // 2, y), line, locale, font, colour, "ma")
         y += line_height
 
 
@@ -185,12 +259,9 @@ def product_asset(source: Image.Image, locale: str, headline: str, subtitle: str
         small = load_font(locale, max(28, height // 35), bold=False)
         rtl = locale.startswith(RTL_PREFIXES)
         position = (int(width * (.925 if rtl else .075)), int(height * .86))
-        try:
-            draw.text(position, subtitle, font=small, fill=WHITE,
-                      anchor="ra" if rtl else "la", direction="rtl" if rtl else "ltr")
-        except (KeyError, ValueError):
-            draw.text(position, subtitle, font=small, fill=WHITE,
-                      anchor="ra" if rtl else "la")
+        draw_localized_text(
+            draw, position, subtitle, locale, small, WHITE, "ra" if rtl else "la"
+        )
     return canvas.convert("RGB")
 
 

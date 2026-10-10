@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-noto-core fonts-noto-cjk fonts-noto-extra
-          python -m pip install --disable-pip-version-check Pillow PyJWT cryptography requests
+          python -m pip install --disable-pip-version-check Pillow PyJWT cryptography requests arabic-reshaper python-bidi
       - name: Validate and upload localized product pages
         env:
           API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}

@@ -58,9 +58,8 @@ class ASC:
         # multi-locale asset upload can take much longer, so sign a fresh token
         # for every API request instead of pinning one to the session.
         headers = {**kwargs.pop("headers", {}), "Authorization": f"Bearer {token()}"}
-        response = self.session.request(
-            method, f"{API_ROOT}{path}", timeout=120, headers=headers, **kwargs
-        )
+        url = path if path.startswith("https://") else f"{API_ROOT}{path}"
+        response = self.session.request(method, url, timeout=120, headers=headers, **kwargs)
         if not response.ok:
             raise RuntimeError(f"ASC {method} {path} failed ({response.status_code}): {response.text}")
         if response.status_code == 204 or not response.content:
@@ -206,6 +205,19 @@ def find_asset(api: ASC, library_id: str, reference_name: str) -> dict | None:
     return data[0] if data else None
 
 
+def library_images(api: ASC, library_id: str) -> list[dict]:
+    """Return every image so checksum-replaced placements can be retired safely."""
+    response = api.request(
+        "GET", f"/appAssetLibraries/{library_id}/images",
+        params={"fields[appAssetLibraryImages]": "fileName,referenceName,state", "limit": 200},
+    )
+    images = list(response["data"])
+    while response.get("links", {}).get("next"):
+        response = api.request("GET", response["links"]["next"])
+        images.extend(response["data"])
+    return images
+
+
 def wait_for_image(api: ASC, image_id: str) -> dict:
     deadline = time.time() + 10 * 60
     while time.time() < deadline:
@@ -251,20 +263,54 @@ def ensure_image(api: ASC, library_id: str, path: Path, category: str, reference
     return wait_for_image(api, image["id"])["id"]
 
 
-def placement_exists(api: ASC, image_id: str, localization_id: str, placement_type: str,
-                     placement_group: str) -> bool:
-    data = api.request(
+def image_placements(api: ASC, image_id: str) -> list[dict]:
+    response = api.request(
         "GET", f"/appAssetLibraryImages/{image_id}/placements",
         params={"fields[appAssetLibraryPlacements]": "placementType,placementGroup,appStoreVersionLocalization",
                 "include": "appStoreVersionLocalization", "limit": 50},
     )
-    included_ids = {item["id"] for item in data.get("included", [])
-                    if item["type"] == "appStoreVersionLocalizations"}
+    return response["data"]
+
+
+def placement_matches(item: dict, localization_id: str, placement_type: str,
+                      placement_group: str) -> bool:
+    localization = item.get("relationships", {}).get(
+        "appStoreVersionLocalization", {}
+    ).get("data") or {}
+    attributes = item.get("attributes", {})
+    return (
+        localization.get("id") == localization_id
+        and attributes.get("placementType") == placement_type
+        and attributes.get("placementGroup") == placement_group
+    )
+
+
+def placement_exists(api: ASC, image_id: str, localization_id: str, placement_type: str,
+                     placement_group: str) -> bool:
     return any(
-        item.get("attributes", {}).get("placementType") == placement_type
-        and item.get("attributes", {}).get("placementGroup") == placement_group
-        for item in data["data"]
-    ) and localization_id in included_ids
+        placement_matches(item, localization_id, placement_type, placement_group)
+        for item in image_placements(api, image_id)
+    )
+
+
+def remove_superseded_placements(api: ASC, images: list[dict], current_image_id: str | None,
+                                 reference_prefix: str, localization_id: str | None,
+                                 placement_type: str, placement_group: str) -> None:
+    """Unplace older checksums for this exact locale, slot, and generated filename."""
+    if localization_id is None:
+        print(f"PLAN retire placements with reference prefix {reference_prefix}")
+        return
+    for image in images:
+        reference_name = image.get("attributes", {}).get("referenceName", "")
+        if image["id"] == current_image_id or not reference_name.startswith(reference_prefix):
+            continue
+        for placement in image_placements(api, image["id"]):
+            if not placement_matches(
+                placement, localization_id, placement_type, placement_group
+            ):
+                continue
+            print(f"Retiring superseded placement {placement['id']} ({reference_name})")
+            api.request("DELETE", f"/appAssetLibraryPlacements/{placement['id']}")
 
 
 def ensure_placement(api: ASC, image_id: str | None, localization_id: str | None,
@@ -324,6 +370,7 @@ def main() -> None:
     app_info = app_info_resource(api)
     info_existing = app_info_localizations(api, app_info["id"])
     library_id = api.request("GET", f"/apps/{APP_ID}/assetLibrary")["data"]["id"]
+    existing_images = library_images(api, library_id)
 
     with tempfile.TemporaryDirectory(prefix="lift-relay-assets-") as temp:
         output_root = Path(temp)
@@ -347,7 +394,12 @@ def main() -> None:
             for path, category, placement_type, placement_group in locale_asset_files(output_root / locale):
                 if not path.exists():
                     raise RuntimeError(f"Missing generated asset {path}")
+                reference_root = f"lift-relay/{locale}/{placement_type}/{path.name}/"
                 image_id = ensure_image(api, library_id, path, category, f"{locale}/{placement_type}")
+                remove_superseded_placements(
+                    api, existing_images, image_id, reference_root, localization_id,
+                    placement_type, placement_group,
+                )
                 ensure_placement(api, image_id, localization_id, placement_type, placement_group)
         print(f"\n{'Applied' if args.apply else 'Planned'} {len(locales)} localized product pages.")
 
